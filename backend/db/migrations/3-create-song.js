@@ -18,12 +18,10 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       albumId: {
-        allowNull: false,
         references: {
           model: "Albums",
           key: "id",
         },
-        onDelete: "CASCADE",
         type: Sequelize.INTEGER,
       },
       title: {
@@ -31,7 +29,6 @@ module.exports = {
         type: Sequelize.STRING(60),
       },
       description: {
-        allowNull: false,
         type: Sequelize.STRING(256),
       },
       url: {
