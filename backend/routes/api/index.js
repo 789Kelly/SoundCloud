@@ -10,13 +10,13 @@ router.use(sessionRouter);
 
 router.use(usersRouter);
 
-router.use("/albums", eventsRouter);
+// router.use("/albums", albumsRouter);
 
-router.use("/songs", groupsRouter);
+router.use("/songs", songsRouter);
 
-router.use("/comments", imagesRouter);
+// router.use("/comments", commentsRouter);
 
-router.use("/playlists", venuesRouter);
+// router.use("/playlists", playlistsRouter);
 
 router.post("/test", (req, res) => {
   res.json({ requestBody: req.body });

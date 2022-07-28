@@ -1,8 +1,8 @@
 "use strict";
 
-const { Venue } = require("../models");
+const { Song } = require("../models");
 
-const venues = [
+const songs = [
   {
     userId: 1,
     albumId: 1,
