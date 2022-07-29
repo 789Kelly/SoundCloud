@@ -70,4 +70,21 @@ router.post("/:albumId/songs", requireAuth, validateSong, async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  let Albums = await Album.findAll({
+    attributes: [
+      "id",
+      "userId",
+      "title",
+      "description",
+      "createdAt",
+      "updatedAt",
+      ["imageUrl", "previewImage"],
+    ],
+  });
+  return res.json({
+    Albums,
+  });
+});
+
 module.exports = router;
