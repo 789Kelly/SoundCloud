@@ -1,7 +1,7 @@
 const express = require("express");
 
 const { setTokenCookie, requireAuth } = require("../../utils/auth");
-const { Song, User, sequelize } = require("../../db/models");
+const { Album, Song, User, sequelize } = require("../../db/models");
 
 const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
@@ -81,4 +81,28 @@ router.get("/users/current/songs", requireAuth, async (req, res) => {
     Songs,
   });
 });
+
+router.get("/users/current/albums", requireAuth, async (req, res) => {
+  const { user } = req;
+
+  const Albums = await Album.findAll({
+    where: {
+      userId: user.id,
+    },
+    attributes: [
+      "id",
+      "userId",
+      "title",
+      "description",
+      "createdAt",
+      "updatedAt",
+      ["imageUrl", "previewImage"],
+    ],
+  });
+
+  return res.json({
+    Albums,
+  });
+});
+
 module.exports = router;
