@@ -1,5 +1,4 @@
 const express = require("express");
-const { UPSERT } = require("sequelize/types/query-types");
 
 const router = express.Router();
 
