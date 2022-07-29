@@ -49,6 +49,7 @@ router.post("/:albumId/songs", requireAuth, validateSong, async (req, res) => {
     let createdAt = newSong.createdAt;
     let updatedAt = newSong.updatedAt;
 
+    res.status(201);
     return res.json({
       id,
       userId,
