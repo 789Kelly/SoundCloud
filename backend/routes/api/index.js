@@ -10,7 +10,7 @@ router.use(sessionRouter);
 
 router.use(usersRouter);
 
-// router.use("/albums", albumsRouter);
+router.use("/albums", albumsRouter);
 
 router.use("/songs", songsRouter);
 
