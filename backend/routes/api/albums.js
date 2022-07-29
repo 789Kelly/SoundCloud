@@ -128,6 +128,53 @@ router.get("/:albumId", async (req, res) => {
   return res.json(albums);
 });
 
+router.put("/:albumId", requireAuth, validateAlbum, async (req, res) => {
+  const { user } = req;
+  let { title, description, imageUrl } = req.body;
+  let { albumId } = req.params;
+
+  const album = await Album.findByPk(albumId);
+
+  if (!album) {
+    res.status(404);
+    return res.json({
+      message: "Album couldn't be found",
+      statusCode: 404,
+    });
+  }
+
+  if (user.id === album.userId) {
+    album.update({
+      title,
+      description,
+      imageUrl,
+    });
+
+    let id = album.id;
+    let userId = album.userId;
+    let createdAt = album.createdAt;
+    let updatedAt = album.updatedAt;
+    let previewImage = album.imageUrl;
+
+    return res.json({
+      id,
+      userId,
+      title,
+      description,
+      url,
+      createdAt,
+      updatedAt,
+      previewImage,
+    });
+  } else {
+    res.status(403);
+    return res.json({
+      message: "Forbidden",
+      statusCode: 403,
+    });
+  }
+});
+
 router.get("/", async (req, res) => {
   let Albums = await Album.findAll({
     attributes: [
