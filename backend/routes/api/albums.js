@@ -16,6 +16,13 @@ const validateSong = [
   handleValidationErrors,
 ];
 
+const validateAlbum = [
+  check("title")
+    .exists({ checkFalsy: true })
+    .withMessage("Album title is required"),
+  handleValidationErrors,
+];
+
 router.post("/:albumId/songs", requireAuth, validateSong, async (req, res) => {
   const { user } = req;
   let { albumId } = req.params;
@@ -135,6 +142,35 @@ router.get("/", async (req, res) => {
   });
   return res.json({
     Albums,
+  });
+});
+
+router.post("/", requireAuth, validateAlbum, async (req, res) => {
+  const { user } = req;
+  let { title, description, imageUrl } = req.body;
+
+  const newAlbum = await Album.create({
+    userId: user.id,
+    title,
+    description,
+    imageUrl,
+  });
+
+  let id = newAlbum.id;
+  let userId = newAlbum.userId;
+  let previewImage = newAlbum.imageUrl;
+  let createdAt = newAlbum.createdAt;
+  let updatedAt = newAlbum.updatedAt;
+
+  res.status(201);
+  return res.json({
+    id,
+    userId,
+    title,
+    description,
+    createdAt,
+    updatedAt,
+    previewImage,
   });
 });
 
