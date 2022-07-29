@@ -55,9 +55,7 @@ router.get("/:songId", async (req, res) => {
     ],
   });
 
-  return res.json({
-    songs,
-  });
+  return res.json(songs);
 });
 
 router.put("/:songId", requireAuth, validateSong, async (req, res) => {

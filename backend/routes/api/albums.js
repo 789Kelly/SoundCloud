@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const { Album, Song } = require("../../db/models");
+const { Album, Song, User } = require("../../db/models");
 
 const { requireAuth } = require("../../utils/auth");
 const { check } = require("express-validator");
@@ -68,6 +68,57 @@ router.post("/:albumId/songs", requireAuth, validateSong, async (req, res) => {
       statusCode: 403,
     });
   }
+});
+
+router.get("/:albumId", async (req, res) => {
+  let { albumId } = req.params;
+  albumId = parseInt(albumId);
+
+  const album = await Album.findByPk(albumId);
+
+  if (!album) {
+    res.status(404);
+    return res.json({
+      message: "Album couldn't be found",
+      statusCode: 404,
+    });
+  }
+
+  const albums = await Album.findByPk(albumId, {
+    attributes: [
+      "id",
+      "userId",
+      "title",
+      "description",
+      "createdAt",
+      "updatedAt",
+      ["imageUrl", "previewImage"],
+    ],
+    include: [
+      {
+        model: User,
+        as: "Artist",
+        attributes: ["id", "username", "previewImage"],
+      },
+      {
+        model: Song,
+        as: "Songs",
+        attributes: [
+          "id",
+          "userId",
+          "albumId",
+          "title",
+          "description",
+          "url",
+          "createdAt",
+          "updatedAt",
+          ["imageUrl", "previewImage"],
+        ],
+      },
+    ],
+  });
+
+  return res.json(albums);
 });
 
 router.get("/", async (req, res) => {
