@@ -110,6 +110,35 @@ router.put("/:songId", requireAuth, validateSong, async (req, res) => {
   }
 });
 
+router.delete("/:songId", requireAuth, async (req, res) => {
+  const { user } = req;
+  const { songId } = req.params;
+
+  const song = await Song.findByPk(songId);
+
+  if (!song) {
+    res.status(404);
+    return res.json({
+      message: "Song couldn't be found",
+      statusCode: 404,
+    });
+  }
+
+  if (user.id === song.userId) {
+    await song.destroy();
+
+    return res.json({
+      message: "Successfully deleted",
+    });
+  } else {
+    res.status(403);
+    return res.json({
+      message: "Forbidden",
+      statusCode: 403,
+    });
+  }
+});
+
 router.get("/", async (req, res) => {
   let Songs = await Song.findAll({
     attributes: [
