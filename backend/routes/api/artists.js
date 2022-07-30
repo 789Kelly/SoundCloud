@@ -30,14 +30,11 @@ router.get("/:artistId", async (req, res) => {
         attributes: [],
       },
     ],
-    attributes: [
-      "id",
-      "username",
-      [sequelize.fn("COUNT", sequelize.col("Song.id")), "totalSongs"],
-      [sequelize.fn("COUNT", sequelize.col("Album.id")), "totalAlbums"],
-      ["imageUrl", "previewImage"],
-    ],
+    attributes: ["id", "username", ["imageUrl", "previewImage"]],
   });
+
+  artists.dataValues.totalSongs = artists.dataValues.Songs.length;
+  delete artists.dataValues.Songs;
 
   return res.json(artists);
 });
