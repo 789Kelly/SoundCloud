@@ -41,6 +41,40 @@ router.get("/:artistId/songs", async (req, res) => {
   });
 });
 
+router.get("/:artistId/albums", async (req, res) => {
+  let { artistId } = req.params;
+  artistId = parseInt(artistId);
+
+  const artist = await User.findByPk(artistId);
+
+  if (!artist) {
+    res.status(404);
+    return res.json({
+      message: "Artist couldn't be found",
+      statusCode: 404,
+    });
+  }
+
+  const Albums = await Album.findAll({
+    where: {
+      userId: artist.id,
+    },
+    attributes: [
+      "id",
+      "userId",
+      "title",
+      "description",
+      "createdAt",
+      "updatedAt",
+      ["imageUrl", "previewImage"],
+    ],
+  });
+
+  return res.json({
+    Albums,
+  });
+});
+
 router.get("/:artistId", async (req, res) => {
   let { artistId } = req.params;
   artistId = parseInt(artistId);
