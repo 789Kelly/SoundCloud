@@ -16,6 +16,13 @@ const validateSong = [
   handleValidationErrors,
 ];
 
+const validateComment = [
+  check("body")
+    .exists({ checkFalsy: true })
+    .withMessage("Comment body text is required"),
+  handleValidationErrors,
+];
+
 router.get("/:songId/comments", async (req, res) => {
   let { songId } = req.params;
   songId = parseInt(songId);
@@ -47,6 +54,58 @@ router.get("/:songId/comments", async (req, res) => {
     Comments,
   });
 });
+
+router.post(
+  "/:songId/comments",
+  requireAuth,
+  validateComment,
+  async (req, res) => {
+    const { user } = req;
+    let { songId } = req.params;
+    let { body } = req.body;
+
+    songId = parseInt(songId);
+
+    const song = await Song.findByPk(songId);
+
+    if (!song) {
+      res.status(404);
+      return res.json({
+        message: "Song couldn't be found",
+        statusCode: 404,
+      });
+    }
+
+    if (user.id === song.userId) {
+      const newComment = await Comment.create({
+        userId: user.id,
+        songId,
+        body,
+      });
+
+      let id = newComment.id;
+      let userId = newComment.userId;
+      let createdAt = newSong.createdAt;
+      let updatedAt = newSong.updatedAt;
+
+      res.status(201);
+      return res.json({
+        id,
+        userId,
+        songId,
+        body,
+        createdAt,
+        updatedAt,
+      });
+    } else {
+      res.status(403);
+      return res.json({
+        message: "Forbidden",
+        statusCode: 403,
+      });
+    }
+  }
+);
 
 router.get("/:songId", async (req, res) => {
   let { songId } = req.params;
