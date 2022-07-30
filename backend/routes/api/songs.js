@@ -23,6 +23,22 @@ const validateComment = [
   handleValidationErrors,
 ];
 
+const validateQuery = [
+  check("page")
+    .optional({ nullable: true })
+    .isInt({ min: 0 })
+    .withMessage("Page must be greater than or equal to 0"),
+  check("size")
+    .optional({ nullable: true })
+    .isInt({ min: 0 })
+    .withMessage("Size must be greater than or equal to 0"),
+  check("createdAt")
+    .optional({ nullable: true })
+    .isDate()
+    .withMessage("CreatedAt is invalid"),
+  handleValidationErrors,
+];
+
 router.get("/:songId/comments", async (req, res) => {
   let { songId } = req.params;
   songId = parseInt(songId);
@@ -230,7 +246,49 @@ router.delete("/:songId", requireAuth, async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router.get("/", validateQuery, async (req, res) => {
+  let { page, size, title, createdAt } = req.query;
+
+  let where = {};
+  let pagination = {};
+
+  if (!page) {
+    page = 0;
+  }
+
+  if (!size) {
+    size = 20;
+  }
+
+  if (Number.isNaN(page) || page < 0 || page > 10) {
+    page = 0;
+  } else {
+    page = page;
+  }
+
+  if (Number.isNaN(size) || size < 0 || size > 20) {
+    size = 20;
+  } else {
+    size = size;
+  }
+
+  if (page > 0) {
+    pagination.limit = size;
+    pagination.offset = size * (page - 1);
+  } else {
+    pagination.limit = size;
+  }
+
+  if (title) {
+    where.title = title;
+  }
+
+  if (createdAt) {
+    const date = new Date(createdAt);
+    const lastDate = date.setDate(date.getDate() + 1);
+    where.createdAt = { [Op.between]: [createdAt, lastDate] };
+  }
+
   let Songs = await Song.findAll({
     attributes: [
       "id",
@@ -246,6 +304,8 @@ router.get("/", async (req, res) => {
   });
   return res.json({
     Songs,
+    page,
+    size,
   });
 });
 
