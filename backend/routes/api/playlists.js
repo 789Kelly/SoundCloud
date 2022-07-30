@@ -53,6 +53,7 @@ router.get("/:playlistId", async (req, res) => {
           "updatedAt",
           ["imageUrl", "previewImage"],
         ],
+        through: { attributes: [] },
       },
     ],
   });
