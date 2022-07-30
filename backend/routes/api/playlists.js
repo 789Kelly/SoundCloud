@@ -105,6 +105,37 @@ router.put("/:playlistId", requireAuth, validatePlaylist, async (req, res) => {
   }
 });
 
+router.delete("/:playlistId", requireAuth, async (req, res) => {
+  const { user } = req;
+  const { playlistId } = req.params;
+
+  const playlist = await Playlist.findByPk(playlistId);
+
+  if (!playlist) {
+    res.status(404);
+    return res.json({
+      message: "Playlist couldn't be found",
+      statusCode: 404,
+    });
+  }
+
+  if (user.id === playlist.userId) {
+    await playlist.destroy();
+
+    res.status(200);
+    return res.json({
+      message: "Successfully deleted",
+      statusCode: 200,
+    });
+  } else {
+    res.status(403);
+    return res.json({
+      message: "Forbidden",
+      statusCode: 403,
+    });
+  }
+});
+
 router.post("/", requireAuth, validatePlaylist, async (req, res) => {
   const { user } = req;
   let { name, imageUrl } = req.body;

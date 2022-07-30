@@ -105,4 +105,26 @@ router.get("/users/current/albums", requireAuth, async (req, res) => {
   });
 });
 
+router.get("/users/current/playlists", requireAuth, async (req, res) => {
+  const { user } = req;
+
+  const Playlists = await Playlist.findAll({
+    where: {
+      userId: user.id,
+    },
+    attributes: [
+      "id",
+      "userId",
+      "name",
+      "createdAt",
+      "updatedAt",
+      ["imageUrl", "previewImage"],
+    ],
+  });
+
+  return res.json({
+    Playlists,
+  });
+});
+
 module.exports = router;
