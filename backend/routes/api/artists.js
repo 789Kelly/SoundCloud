@@ -33,8 +33,8 @@ router.get("/:artistId", async (req, res) => {
     attributes: ["id", "username", "previewImage"],
   });
 
-  artists.dataValues.totalSongs = artists.dataValues.Songs.length;
-  delete artists.dataValues.Songs;
+  artists.dataValues.totalSongs = artists.dataValues.Song.length;
+  delete artists.dataValues.Song;
 
   return res.json(artists);
 });
