@@ -2,7 +2,8 @@ const express = require("express");
 
 const router = express.Router();
 
-const { Comment, Song, User, Album } = require("../../db/models");
+const { Comment, Song, User, Album, sequelize } = require("../../db/models");
+const { Op } = require("sequelize");
 
 const { requireAuth } = require("../../utils/auth");
 const { check } = require("express-validator");
