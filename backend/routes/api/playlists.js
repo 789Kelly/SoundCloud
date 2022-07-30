@@ -46,13 +46,15 @@ router.post("/:playlistId/songs", requireAuth, async (req, res) => {
       playlistId,
     });
 
-    let id = newPlaylistSong.id;
-
-    return res.json({
-      id,
-      songId,
-      playlistId,
+    const createdPlaylistSong = await PlaylistSong.findOne({
+      where: {
+        songId,
+        playlistId,
+      },
+      attributes: ["id", "playlistId", "songId"],
     });
+
+    return res.json({ createdPlaylistSong });
   } else {
     res.status(403);
     return res.json({
