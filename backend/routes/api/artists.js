@@ -23,18 +23,16 @@ router.get("/:artistId", async (req, res) => {
     include: [
       {
         model: Song,
-        attributes: [],
       },
       {
         model: Album,
-        attributes: [],
       },
     ],
     attributes: ["id", "username", "previewImage"],
   });
 
-  artists.dataValues.totalSongs = artists.dataValues.Song.length;
-  delete artists.dataValues.Song;
+  artists.dataValues.totalSongs = artists.dataValues.Songs.length;
+  delete artists.dataValues.Songs;
 
   return res.json(artists);
 });
