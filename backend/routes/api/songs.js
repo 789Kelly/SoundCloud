@@ -16,6 +16,38 @@ const validateSong = [
   handleValidationErrors,
 ];
 
+router.get("/:songId/comments", async (req, res) => {
+  let { songId } = req.params;
+  songId = parseInt(songId);
+
+  const song = await Song.findByPk(songId);
+
+  if (!song) {
+    res.status(404);
+    return res.json({
+      message: "Song couldn't be found",
+      statusCode: 404,
+    });
+  }
+
+  const Comments = await Comment.findAll({
+    where: {
+      songId: song.id,
+    },
+    attributes: ["id", "userId", "songId", "body", "createdAt", "updatedAt"],
+    include: [
+      {
+        model: User,
+        attributes: ["id", "username"],
+      },
+    ],
+  });
+
+  return res.json({
+    Comments,
+  });
+});
+
 router.get("/:songId", async (req, res) => {
   let { songId } = req.params;
   songId = parseInt(songId);

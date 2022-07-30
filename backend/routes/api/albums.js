@@ -175,6 +175,37 @@ router.put("/:albumId", requireAuth, validateAlbum, async (req, res) => {
   }
 });
 
+router.delete("/:albumId", requireAuth, async (req, res) => {
+  const { user } = req;
+  const { albumId } = req.params;
+
+  const album = await Album.findByPk(albumId);
+
+  if (!album) {
+    res.status(404);
+    return res.json({
+      message: "Album couldn't be found",
+      statusCode: 404,
+    });
+  }
+
+  if (user.id === album.userId) {
+    await album.destroy();
+
+    res.status(200);
+    return res.json({
+      message: "Successfully deleted",
+      statusCode: 200,
+    });
+  } else {
+    res.status(403);
+    return res.json({
+      message: "Forbidden",
+      statusCode: 403,
+    });
+  }
+});
+
 router.get("/", async (req, res) => {
   let Albums = await Album.findAll({
     attributes: [
