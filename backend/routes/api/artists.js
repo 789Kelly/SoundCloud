@@ -1,7 +1,7 @@
 const express = require("express");
 
 // const { requireAuth } = require("../../utils/auth");
-const { Album, Song, User, sequelize } = require("../../db/models");
+const { Album, Playlist, Song, User, sequelize } = require("../../db/models");
 
 const router = express.Router();
 
