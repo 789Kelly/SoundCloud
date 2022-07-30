@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const { Song, User, Album } = require("../../db/models");
+const { Comment, Song, User, Album } = require("../../db/models");
 
 const { requireAuth } = require("../../utils/auth");
 const { check } = require("express-validator");
