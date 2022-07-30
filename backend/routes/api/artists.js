@@ -30,7 +30,7 @@ router.get("/:artistId", async (req, res) => {
         attributes: [],
       },
     ],
-    attributes: ["id", "username", ["imageUrl", "previewImage"]],
+    attributes: ["id", "username", "previewImage"],
   });
 
   artists.dataValues.totalSongs = artists.dataValues.Songs.length;
