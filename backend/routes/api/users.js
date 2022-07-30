@@ -5,7 +5,6 @@ const { Album, Playlist, Song, User, sequelize } = require("../../db/models");
 
 const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
-const Songs = require("../../db/seeders/3-songs");
 
 const validateSignup = [
   check("firstName")

@@ -5,6 +5,7 @@ const albumsRouter = require("./albums.js");
 const songsRouter = require("./songs.js");
 const commentsRouter = require("./comments.js");
 const playlistsRouter = require("./playlists.js");
+const artistsRouter = require("./artists.js");
 
 router.use(sessionRouter);
 
@@ -17,6 +18,8 @@ router.use("/songs", songsRouter);
 router.use("/comments", commentsRouter);
 
 router.use("/playlists", playlistsRouter);
+
+router.use("/artists", artistsRouter);
 
 router.post("/test", (req, res) => {
   res.json({ requestBody: req.body });
