@@ -5,6 +5,42 @@ const { Album, Song, User, sequelize } = require("../../db/models");
 
 const router = express.Router();
 
+router.get("/:artistId/songs", async (req, res) => {
+  let { artistId } = req.params;
+  artistId = parseInt(artistId);
+
+  const artist = await User.findByPk(artistId);
+
+  if (!artist) {
+    res.status(404);
+    return res.json({
+      message: "Artist couldn't be found",
+      statusCode: 404,
+    });
+  }
+
+  const Songs = await Song.findAll({
+    where: {
+      userId: artist.id,
+    },
+    attributes: [
+      "id",
+      "userId",
+      "albumId",
+      "title",
+      "description",
+      "url",
+      "createdAt",
+      "updatedAt",
+      ["imageUrl", "previewImage"],
+    ],
+  });
+
+  return res.json({
+    Songs,
+  });
+});
+
 router.get("/:artistId", async (req, res) => {
   let { artistId } = req.params;
   artistId = parseInt(artistId);
