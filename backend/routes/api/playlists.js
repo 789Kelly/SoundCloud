@@ -54,7 +54,7 @@ router.post("/:playlistId/songs", requireAuth, async (req, res) => {
       attributes: ["id", "playlistId", "songId"],
     });
 
-    return res.json({ createdPlaylistSong });
+    return res.json(createdPlaylistSong);
   } else {
     res.status(403);
     return res.json({
