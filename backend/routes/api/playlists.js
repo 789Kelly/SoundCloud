@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const { Album, Playlist, Song } = require("../../db/models");
+const { Album, Playlist, PlaylistSong, Song } = require("../../db/models");
 
 const { requireAuth } = require("../../utils/auth");
 const { check } = require("express-validator");
@@ -14,6 +14,53 @@ const validatePlaylist = [
     .withMessage("Playlist name is required"),
   handleValidationErrors,
 ];
+
+router.post("/:playlistId/songs", requireAuth, async (req, res) => {
+  const { user } = req;
+  let { songId } = req.body;
+  let { playlistId } = req.params;
+
+  const playlist = await Playlist.findByPk(playlistId);
+
+  if (!playlist) {
+    res.status(404);
+    return res.json({
+      message: "Playlist couldn't be found",
+      statusCode: 404,
+    });
+  }
+
+  const song = await Song.findByPk(songId);
+
+  if (!song) {
+    res.status(404);
+    return res.json({
+      message: "Song couldn't be found",
+      statusCode: 404,
+    });
+  }
+
+  if (user.id === playlist.userId) {
+    const newPlaylistSong = await PlaylistSong.create({
+      songId,
+      playlistId,
+    });
+
+    let id = newPlaylistSong.id;
+
+    return res.json({
+      id,
+      songId,
+      playlistId,
+    });
+  } else {
+    res.status(403);
+    return res.json({
+      message: "Forbidden",
+      statusCode: 403,
+    });
+  }
+});
 
 router.get("/:playlistId", async (req, res) => {
   let { playlistId } = req.params;
