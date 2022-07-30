@@ -291,6 +291,8 @@ router.get("/", validateQuery, async (req, res) => {
   }
 
   let Songs = await Song.findAll({
+    where,
+    ...pagination,
     attributes: [
       "id",
       "userId",
