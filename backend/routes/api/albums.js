@@ -161,7 +161,6 @@ router.put("/:albumId", requireAuth, validateAlbum, async (req, res) => {
       userId,
       title,
       description,
-      url,
       createdAt,
       updatedAt,
       previewImage,
