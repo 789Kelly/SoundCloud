@@ -115,7 +115,7 @@ router.put("/:playlistId", requireAuth, validatePlaylist, async (req, res) => {
   let { name, imageUrl } = req.body;
   let { playlistId } = req.params;
 
-  const playlist = await Album.findByPk(playlistId);
+  const playlist = await Playlist.findByPk(playlistId);
 
   if (!playlist) {
     res.status(404);
