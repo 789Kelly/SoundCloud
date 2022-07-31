@@ -101,8 +101,8 @@ router.post(
 
     let id = newComment.id;
     let userId = newComment.userId;
-    let createdAt = newSong.createdAt;
-    let updatedAt = newSong.updatedAt;
+    let createdAt = newComment.createdAt;
+    let updatedAt = newComment.updatedAt;
 
     res.status(201);
     return res.json({
