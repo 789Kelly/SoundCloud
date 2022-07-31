@@ -93,34 +93,26 @@ router.post(
       });
     }
 
-    if (user.id === song.userId) {
-      const newComment = await Comment.create({
-        userId: user.id,
-        songId,
-        body,
-      });
+    const newComment = await Comment.create({
+      userId: user.id,
+      songId,
+      body,
+    });
 
-      let id = newComment.id;
-      let userId = newComment.userId;
-      let createdAt = newSong.createdAt;
-      let updatedAt = newSong.updatedAt;
+    let id = newComment.id;
+    let userId = newComment.userId;
+    let createdAt = newSong.createdAt;
+    let updatedAt = newSong.updatedAt;
 
-      res.status(201);
-      return res.json({
-        id,
-        userId,
-        songId,
-        body,
-        createdAt,
-        updatedAt,
-      });
-    } else {
-      res.status(403);
-      return res.json({
-        message: "Forbidden",
-        statusCode: 403,
-      });
-    }
+    res.status(201);
+    return res.json({
+      id,
+      userId,
+      songId,
+      body,
+      createdAt,
+      updatedAt,
+    });
   }
 );
 
