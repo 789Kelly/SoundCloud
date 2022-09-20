@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       });
       Playlist.belongsTo(models.User, {
         foreignKey: "userId",
+
         // onDelete: "CASCADE",
         // hooks: true,
       });
