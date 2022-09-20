@@ -41,6 +41,7 @@ router.post("/login", validateLogin, async (req, res, next) => {
     token,
   });
 });
+//user: ...user.toSafeObject(),
 
 router.delete("/", (_req, res) => {
   res.clearCookie("token");
