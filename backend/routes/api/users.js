@@ -28,7 +28,7 @@ const validateSignup = [
 
 const router = express.Router();
 
-router.post("/signup", validateSignup, async (req, res) => {
+router.post("/api/users", validateSignup, async (req, res) => {
   const { firstName, lastName, email, username, password } = req.body;
 
   const checkEmail = await User.findOne({ where: { email } });
