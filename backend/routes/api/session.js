@@ -22,7 +22,7 @@ const validateLogin = [
 
 const router = express.Router();
 
-router.post("/login", validateLogin, async (req, res, next) => {
+router.post("/api/session", validateLogin, async (req, res, next) => {
   const { credential, password } = req.body;
 
   const user = await User.login({ credential, password });
@@ -43,10 +43,20 @@ router.post("/login", validateLogin, async (req, res, next) => {
 });
 //user: ...user.toSafeObject(),
 
-router.delete("/", (_req, res) => {
+router.delete("/api/session", (_req, res) => {
   res.clearCookie("token");
   return res.json({ message: "success" });
 });
+
+router.get("/api/session", restoreUser, (req, res) => {
+  const { user } = req;
+  if (user) {
+    return res.json({
+      ...user.toSafeObject(),
+    });
+  } else return res.json({});
+});
+//removed requireAuth middleware
 
 router.get("/users/current", restoreUser, requireAuth, (req, res) => {
   const { user } = req;
