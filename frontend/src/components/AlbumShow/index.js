@@ -19,7 +19,7 @@ const AlbumShow = () => {
       <br />
       Preview Image: {album.previewImage}
       <br />
-      <Link to="/albums">Back to Albums List</Link>
+      <Link to="/frontendalbums">Back to Albums List</Link>
     </>
   );
 };
