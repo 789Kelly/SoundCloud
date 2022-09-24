@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import PlaylistItem from "../PlaylistItem";
 import { fetchPlaylists } from "../../store/playlists";
 import { useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 
 const PlaylistsPage = () => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const PlaylistsPage = () => {
     dispatch(fetchPlaylists());
   }, [dispatch]);
 
-  if (!sessionUser.id) history.push("/");
+  if (!sessionUser.id) return <Redirect to="/" />;
 
   if (!playlists.length) {
     return (
