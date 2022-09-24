@@ -15,18 +15,30 @@ const EditAlbumForm = () => {
   const [title, setTitle] = useState(album.title);
   const [description, setDescription] = useState(album.description);
   const [previewImage, setPreviewImage] = useState(album.previewImage);
+  const [errors, setErrors] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     album = { ...album, title, description, previewImage };
+    setErrors([]);
 
-    const result = await dispatch(fetchEditAlbum(album));
+    const response = await dispatch(fetchEditAlbum(album)).catch(
+      async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      }
+    );
 
-    history.push(`/albums/${result.id}`);
+    if (response) history.push("/frontendalbums");
   };
 
   return (
     <form onSubmit={handleSubmit}>
+      <ul>
+        {errors.map((error, idx) => (
+          <li key={idx}>{error}</li>
+        ))}
+      </ul>
       <label>
         Title
         <input

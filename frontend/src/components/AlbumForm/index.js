@@ -10,18 +10,28 @@ const AlbumForm = ({ album, formType }) => {
   const [title, setTitle] = useState(album.title);
   const [description, setDescription] = useState(album.description);
   const [imageUrl, setImageUrl] = useState(album.imageUrl);
+  const [errors, setErrors] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     album = { ...album, title, description, imageUrl };
+    setErrors([]);
 
-    const result = await dispatch(fetchAlbum(album));
+    const response = await dispatch(fetchAlbum(album)).catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors) setErrors(data.errors);
+    });
 
-    history.push(`/albums/${result.id}`);
+    if (response) history.push("/frontendalbums");
   };
 
   return (
     <form onSubmit={handleSubmit}>
+      <ul>
+        {errors.map((error, idx) => (
+          <li key={idx}>{error}</li>
+        ))}
+      </ul>
       <label>
         Title
         <input

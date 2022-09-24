@@ -138,6 +138,5 @@ export default albumReducer;
 //add more links after login
 //reseed database
 //display all the data on the albums route
-//push to heroku
 //signup not working
 //if no playlists created by current user, program message to the user

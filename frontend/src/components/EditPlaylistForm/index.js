@@ -13,18 +13,30 @@ const EditPlaylistForm = () => {
 
   const [name, setName] = useState(playlist.name);
   const [previewImage, setPreviewImage] = useState(playlist.previewImage);
+  const [errors, setErrors] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     playlist = { ...playlist, name, previewImage };
+    setErrors([]);
 
-    const result = await dispatch(fetchEditPlaylist(playlist));
+    const response = await dispatch(fetchEditPlaylist(playlist)).catch(
+      async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      }
+    );
 
-    history.push(`/playlists/${result.id}`);
+    if (response) history.push("/playlists");
   };
 
   return (
     <form onSubmit={handleSubmit}>
+      <ul>
+        {errors.map((error, idx) => (
+          <li key={idx}>{error}</li>
+        ))}
+      </ul>
       <label>
         Name
         <input

@@ -9,18 +9,30 @@ const PlaylistForm = ({ playlist, formType }) => {
 
   const [name, setName] = useState(playlist.name);
   const [imageUrl, setImageUrl] = useState(playlist.imageUrl);
+  const [errors, setErrors] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     playlist = { ...playlist, name, imageUrl };
+    setErrors([]);
 
-    const result = await dispatch(fetchPlaylist(playlist));
+    const response = await dispatch(fetchPlaylist(playlist)).catch(
+      async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      }
+    );
 
-    history.push(`/playlists/${result.id}`);
+    if (response) history.push("/playlists");
   };
 
   return (
     <form onSubmit={handleSubmit}>
+      <ul>
+        {errors.map((error, idx) => (
+          <li key={idx}>{error}</li>
+        ))}
+      </ul>
       <label>
         Name
         <input
