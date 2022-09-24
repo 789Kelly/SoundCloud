@@ -20,6 +20,8 @@ function LoginFormPage() {
       async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
+        if (!sessionUser.id)
+          setErrors([...errors, "Invalid username or password"]);
       }
     );
   };
