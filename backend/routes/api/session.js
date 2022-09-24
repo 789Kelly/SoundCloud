@@ -58,7 +58,7 @@ router.get("/api/session", restoreUser, (req, res) => {
 });
 //removed requireAuth middleware
 
-router.get("/users/current", restoreUser, requireAuth, (req, res) => {
+router.get("/api/users/current", restoreUser, requireAuth, (req, res) => {
   const { user } = req;
   if (user) {
     return res.json({

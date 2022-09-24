@@ -42,7 +42,7 @@ export const editAlbum = (id) => {
 };
 
 export const fetchAlbums = () => async (dispatch) => {
-  const res = await csrfFetch("/albums");
+  const res = await csrfFetch("/api/albums");
   const albums = await res.json();
 
   dispatch(loadAlbums(albums));
@@ -50,7 +50,7 @@ export const fetchAlbums = () => async (dispatch) => {
 
 export const fetchAlbum = (album) => async (dispatch) => {
   const { title, description, imageUrl } = album;
-  const response = await csrfFetch("/albums", {
+  const response = await csrfFetch("/api/albums", {
     method: "POST",
     body: JSON.stringify({
       title,
@@ -64,7 +64,7 @@ export const fetchAlbum = (album) => async (dispatch) => {
 };
 
 export const fetchDeleteAlbum = (payload) => async (dispatch) => {
-  const res = await csrfFetch(`/albums/${payload}`, {
+  const res = await csrfFetch(`/api/albums/${payload}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ payload }),
@@ -74,7 +74,7 @@ export const fetchDeleteAlbum = (payload) => async (dispatch) => {
 
 export const fetchEditAlbum = (album) => async (dispatch) => {
   const { title, description, previewImage } = album;
-  const res = await csrfFetch(`/albums/${album.id}`, {
+  const res = await csrfFetch(`/api/albums/${album.id}`, {
     method: "PUT",
     body: JSON.stringify({
       title,
@@ -132,11 +132,7 @@ export default albumReducer;
 //error handling
 //default user
 //image URL's
-//hide login
-//create logout button
 //get rid of bullet on navigation
-//add more links after login
 //reseed database
 //display all the data on the albums route
 //signup not working
-//if no playlists created by current user, program message to the user

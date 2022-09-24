@@ -56,7 +56,7 @@ router.post("/api/users", validateSignup, async (req, res) => {
   });
 });
 
-router.get("/users/current/songs", requireAuth, async (req, res) => {
+router.get("/api/users/current/songs", requireAuth, async (req, res) => {
   const { user } = req;
 
   const Songs = await Song.findAll({
@@ -81,7 +81,7 @@ router.get("/users/current/songs", requireAuth, async (req, res) => {
   });
 });
 
-router.get("/users/current/albums", requireAuth, async (req, res) => {
+router.get("/api/users/current/albums", requireAuth, async (req, res) => {
   const { user } = req;
 
   const Albums = await Album.findAll({
@@ -104,7 +104,7 @@ router.get("/users/current/albums", requireAuth, async (req, res) => {
   });
 });
 
-router.get("/users/current/playlists", requireAuth, async (req, res) => {
+router.get("/api/users/current/playlists", requireAuth, async (req, res) => {
   const { user } = req;
 
   const Playlists = await Playlist.findAll({

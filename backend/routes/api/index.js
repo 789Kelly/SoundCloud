@@ -11,15 +11,15 @@ router.use(sessionRouter);
 
 router.use(usersRouter);
 
-router.use("/albums", albumsRouter);
+router.use("/api/albums", albumsRouter);
 
-router.use("/songs", songsRouter);
+router.use("/api/songs", songsRouter);
 
-router.use("/comments", commentsRouter);
+router.use("/api/comments", commentsRouter);
 
-router.use("/playlists", playlistsRouter);
+router.use("/api/playlists", playlistsRouter);
 
-router.use("/artists", artistsRouter);
+router.use("/api/artists", artistsRouter);
 
 router.post("/test", (req, res) => {
   res.json({ requestBody: req.body });

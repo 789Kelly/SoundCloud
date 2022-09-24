@@ -34,7 +34,7 @@ export const editPlaylist = (id) => {
 };
 
 export const fetchPlaylists = () => async (dispatch) => {
-  const res = await csrfFetch("/users/current/playlists");
+  const res = await csrfFetch("/api/users/current/playlists");
   const playlists = await res.json();
 
   dispatch(loadPlaylists(playlists));
@@ -42,7 +42,7 @@ export const fetchPlaylists = () => async (dispatch) => {
 
 export const fetchPlaylist = (playlist) => async (dispatch) => {
   const { name, imageUrl } = playlist;
-  const response = await csrfFetch("/playlists", {
+  const response = await csrfFetch("/api/playlists", {
     method: "POST",
     body: JSON.stringify({
       name,
@@ -55,7 +55,7 @@ export const fetchPlaylist = (playlist) => async (dispatch) => {
 };
 
 export const fetchDeletePlaylist = (payload) => async (dispatch) => {
-  const res = await csrfFetch(`/playlists/${payload}`, {
+  const res = await csrfFetch(`/api/playlists/${payload}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ payload }),
@@ -66,7 +66,7 @@ export const fetchDeletePlaylist = (payload) => async (dispatch) => {
 
 export const fetchEditPlaylist = (playlist) => async (dispatch) => {
   const { name, previewImage } = playlist;
-  const res = await csrfFetch(`/playlists/${playlist.id}`, {
+  const res = await csrfFetch(`/api/playlists/${playlist.id}`, {
     method: "PUT",
     body: JSON.stringify({
       name,

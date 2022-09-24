@@ -25,6 +25,8 @@ function Navigation({ isLoaded }) {
         <NavLink exact to="/">
           Home
         </NavLink>
+        <NavLink to="/frontendalbums">Albums</NavLink>
+        <NavLink to="/playlists">My Playlists</NavLink>
         {isLoaded && sessionLinks}
       </li>
     </ul>

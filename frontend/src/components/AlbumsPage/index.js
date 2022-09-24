@@ -12,16 +12,25 @@ const AlbumsPage = () => {
     dispatch(fetchAlbums());
   }, [dispatch]);
 
-  return (
-    <>
-      <ul>
-        {albums.map((album) => (
-          <AlbumItem key={album.id} album={album} />
-        ))}
-      </ul>
-      <Link to="/albums/new">Add New Album</Link>
-    </>
-  );
+  if (!albums.length) {
+    return (
+      <>
+        <h2>No one has added any albums yet!</h2>
+        <Link to="/albums/new">Add New Album</Link>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <ul>
+          {albums.map((album) => (
+            <AlbumItem key={album.id} album={album} />
+          ))}
+        </ul>
+        <Link to="/albums/new">Add New Album</Link>
+      </>
+    );
+  }
 };
 
 export default AlbumsPage;

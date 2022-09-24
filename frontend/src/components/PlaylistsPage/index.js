@@ -12,16 +12,25 @@ const PlaylistsPage = () => {
     dispatch(fetchPlaylists());
   }, [dispatch]);
 
-  return (
-    <>
-      <ul>
-        {playlists.map((playlist) => (
-          <PlaylistItem key={playlist.id} playlist={playlist} />
-        ))}
-      </ul>
-      <Link to="/playlists/new">Add New Playlist</Link>
-    </>
-  );
+  if (!playlists.length) {
+    return (
+      <>
+        <h2>You haven't added any playlists yet!</h2>
+        <Link to="/playlists/new">Add New Playlist</Link>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <ul>
+          {playlists.map((playlist) => (
+            <PlaylistItem key={playlist.id} playlist={playlist} />
+          ))}
+        </ul>
+        <Link to="/playlists/new">Add New Playlist</Link>
+      </>
+    );
+  }
 };
 
 export default PlaylistsPage;

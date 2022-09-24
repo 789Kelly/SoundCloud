@@ -56,6 +56,7 @@ function App() {
           <Route path="/playlists/:playlistId/edit">
             <EditPlaylistForm />
           </Route>
+          <Route path="/">Page Doesn't Exist</Route>
         </Switch>
       )}
     </>
