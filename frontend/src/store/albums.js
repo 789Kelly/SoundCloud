@@ -4,6 +4,7 @@ const LOAD_ALBUMS = "albums/load";
 // const ADD_SONG = "songs/add";
 const ADD_ALBUM = "albums/add";
 const DELETE_ALBUM = "albums/delete";
+const EDIT_ALBUM = "albums/edit";
 
 const loadAlbums = (albums) => {
   return {
@@ -29,6 +30,13 @@ export const addAlbum = (album) => {
 export const deleteAlbum = (id) => {
   return {
     type: DELETE_ALBUM,
+    payload: id,
+  };
+};
+
+export const editAlbum = (id) => {
+  return {
+    type: EDIT_ALBUM,
     payload: id,
   };
 };
@@ -62,7 +70,21 @@ export const fetchDeleteAlbum = (payload) => async (dispatch) => {
     body: JSON.stringify({ payload }),
   });
   dispatch(deleteAlbum(payload));
-  console.log(res);
+};
+
+export const fetchEditAlbum = (album) => async (dispatch) => {
+  const { title, description, previewImage } = album;
+  const res = await csrfFetch(`/albums/${album.id}`, {
+    method: "PUT",
+    body: JSON.stringify({
+      title,
+      description,
+      imageUrl: previewImage,
+    }),
+  });
+  const data = await res.json();
+  dispatch(editAlbum(data));
+  return data;
 };
 
 // export const uploadSong = (object) => async (dispatch) => {
@@ -96,6 +118,10 @@ const albumReducer = (state = {}, action) => {
       newState = { ...state };
       delete newState[action.payload];
       return newState;
+    case EDIT_ALBUM:
+      newState = { ...state };
+      newState[action.payload.id] = action.payload;
+      return newState;
     default:
       return state;
   }
@@ -106,7 +132,6 @@ export default albumReducer;
 //error handling
 //default user
 //image URL's
-//fix playlists
 //hide login
 //create logout button
 //get rid of bullet on navigation
@@ -114,3 +139,5 @@ export default albumReducer;
 //reseed database
 //display all the data on the albums route
 //push to heroku
+//signup not working
+//if no playlists created by current user, program message to the user

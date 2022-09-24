@@ -50,7 +50,7 @@ function App() {
           <Route path="/playlists/new">
             <CreatePlaylistForm />
           </Route>
-          <Route path="/playlists/:playlistId">
+          <Route exact path="/playlists/:playlistId">
             <PlaylistShow />
           </Route>
           <Route path="/playlists/:playlistId/edit">

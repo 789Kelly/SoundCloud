@@ -1,14 +1,14 @@
 import { useDispatch } from "react-redux";
-import { deletePlaylist } from "../../store/playlists";
+import { fetchDeletePlaylist } from "../../store/playlists";
 import { Link } from "react-router-dom";
 
 const PlaylistItem = ({ playlist }) => {
   const dispatch = useDispatch();
 
-  const removePlaylist = (e) => {
+  const removePlaylist = async (e) => {
     e.preventDefault();
 
-    dispatch(deletePlaylist(playlist.id));
+    await dispatch(fetchDeletePlaylist(playlist.id));
   };
 
   return (

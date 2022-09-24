@@ -7,7 +7,6 @@ const AlbumForm = ({ album, formType }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  // const [id] = useState(album.id);
   const [title, setTitle] = useState(album.title);
   const [description, setDescription] = useState(album.description);
   const [imageUrl, setImageUrl] = useState(album.imageUrl);

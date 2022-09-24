@@ -1,21 +1,22 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addPlaylist } from "../../store/playlists";
+import { fetchPlaylist } from "../../store/playlists";
 import { useHistory } from "react-router-dom";
 
 const PlaylistForm = ({ playlist, formType }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [name, setName] = useState(playlist.title);
+  const [name, setName] = useState(playlist.name);
   const [imageUrl, setImageUrl] = useState(playlist.imageUrl);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     playlist = { ...playlist, name, imageUrl };
 
-    dispatch(addPlaylist(playlist));
-    history.push(`/playlists/${playlist.id}`);
+    const result = await dispatch(fetchPlaylist(playlist));
+
+    history.push(`/playlists/${result.id}`);
   };
 
   return (
