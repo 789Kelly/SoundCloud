@@ -1,19 +1,23 @@
 import { useDispatch } from "react-redux";
 import { fetchEditPlaylist } from "../../store/playlists";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, Redirect } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
 const EditPlaylistForm = () => {
   const { playlistId } = useParams();
   let playlist = useSelector((state) => state.playlists[playlistId]);
+  const user = useSelector((state) => state.session.user);
 
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [name, setName] = useState(playlist.name);
-  const [previewImage, setPreviewImage] = useState(playlist.previewImage);
+  const [name, setName] = useState(playlist?.name);
+  const [previewImage, setPreviewImage] = useState(playlist?.previewImage);
   const [errors, setErrors] = useState([]);
+
+  if (!user.id) return <Redirect to="/" />;
+  if (playlist?.userId !== user.id) return <Redirect to="/playlists" />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();

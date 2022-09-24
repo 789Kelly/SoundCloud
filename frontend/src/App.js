@@ -32,7 +32,7 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route exact path="/frontendalbums">
+          <Route exact path="/albums">
             <AlbumsPage />
           </Route>
           <Route path="/albums/new">

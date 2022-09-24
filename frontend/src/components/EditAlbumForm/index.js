@@ -3,19 +3,24 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchEditAlbum } from "../../store/albums";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 
 const EditAlbumForm = () => {
   const { albumId } = useParams();
   let album = useSelector((state) => state.albums[albumId]);
+  const user = useSelector((state) => state.session.user);
 
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [title, setTitle] = useState(album.title);
-  const [description, setDescription] = useState(album.description);
-  const [previewImage, setPreviewImage] = useState(album.previewImage);
+  const [title, setTitle] = useState(album?.title);
+  const [description, setDescription] = useState(album?.description);
+  const [previewImage, setPreviewImage] = useState(album?.previewImage);
   const [errors, setErrors] = useState([]);
+  //dispatch in a useeffect if album is empty
+
+  if (!user.id) return <Redirect to="/albums" />;
+  if (album?.userId !== user.id) return <Redirect to="/albums" />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,7 +34,7 @@ const EditAlbumForm = () => {
       }
     );
 
-    if (response) history.push("/frontendalbums");
+    if (response) history.push("/albums");
   };
 
   return (

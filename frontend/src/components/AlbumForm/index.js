@@ -22,7 +22,7 @@ const AlbumForm = ({ album, formType }) => {
       if (data && data.errors) setErrors(data.errors);
     });
 
-    if (response) history.push("/frontendalbums");
+    if (response) history.push("/albums");
   };
 
   return (

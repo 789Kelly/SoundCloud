@@ -2,20 +2,23 @@ import { useDispatch, useSelector } from "react-redux";
 import PlaylistItem from "../PlaylistItem";
 import { fetchPlaylists } from "../../store/playlists";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 const PlaylistsPage = () => {
   const dispatch = useDispatch();
   const playlists = Object.values(useSelector((state) => state.playlists));
-
+  const sessionUser = useSelector((state) => state.session.user);
+  // if no session user, there shouldn't be any playlists so redirect to /; but why is it showing all playlists with user logged in
   useEffect(() => {
     dispatch(fetchPlaylists());
   }, [dispatch]);
 
+  if (!sessionUser.id) return <Redirect to="/" />;
+
   if (!playlists.length) {
     return (
       <>
-        <h2>You haven't added any playlists yet!</h2>
+        <h2>Nothing to hear here</h2>
         <Link to="/playlists/new">Add New Playlist</Link>
       </>
     );

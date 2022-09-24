@@ -135,4 +135,8 @@ export default albumReducer;
 //get rid of bullet on navigation
 //reseed database
 //display all the data on the albums route
-//signup not working
+//401 when can't login should throw error
+//redirect if someone tries to go to url when user empty/not authorized
+//are we supposed to have a home page?
+//profile button appearing everywhere when not logged in, fix logic
+//albums/hello giving an error instead of redirecting

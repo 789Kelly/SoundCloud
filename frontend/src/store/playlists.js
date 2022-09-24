@@ -4,6 +4,7 @@ const LOAD_PLAYLISTS = "playlists/load";
 const ADD_PLAYLIST = "playlists/add";
 const DELETE_PLAYLIST = "playlists/delete";
 const EDIT_PLAYLIST = "playlists/edit";
+const LOAD_SONGS = "playlists/songs/load";
 
 const loadPlaylists = (playlists) => {
   return {
@@ -30,6 +31,13 @@ export const editPlaylist = (id) => {
   return {
     type: EDIT_PLAYLIST,
     payload: id,
+  };
+};
+
+const loadSongs = (payload) => {
+  return {
+    type: LOAD_SONGS,
+    payload,
   };
 };
 
@@ -78,6 +86,13 @@ export const fetchEditPlaylist = (playlist) => async (dispatch) => {
   return data;
 };
 
+export const fetchSongs = (id) => async (dispatch) => {
+  const res = await csrfFetch(`/api/playlists/${id}`);
+  const data = await res.json();
+
+  dispatch(loadSongs(data.Songs));
+};
+
 const playlistReducer = (state = {}, action) => {
   let newState;
   switch (action.type) {
@@ -99,6 +114,10 @@ const playlistReducer = (state = {}, action) => {
     case EDIT_PLAYLIST:
       newState = { ...state };
       newState[action.payload.id] = action.payload;
+      return newState;
+    case LOAD_SONGS:
+      newState = { ...state };
+      newState.Songs = action.payload;
       return newState;
     default:
       return state;

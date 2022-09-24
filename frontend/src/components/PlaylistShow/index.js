@@ -1,24 +1,26 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import SongItem from "../SongItem";
+import { fetchSongs } from "../../store/playlists";
+import { useEffect } from "react";
 
 const PlaylistShow = () => {
+  const dispatch = useDispatch();
+
   const { playlistId } = useParams();
-  const playlist = useSelector((state) => state.playlists[playlistId]);
+  const songs = useSelector((state) => state.playlists.Songs);
+
+  useEffect(() => {
+    dispatch(fetchSongs(playlistId));
+  }, [dispatch]);
 
   return (
     <>
-      ID: {playlist.id}
-      <br />
-      Title: {playlist.title}
-      <br />
-      Description: {playlist.description}
-      <br />
-      Created At: {playlist.createdAt}
-      <br />
-      Updated At: {playlist.updatedAt}
-      <br />
-      Preview Image: {playlist.previewImage}
-      <br />
+      <ul>
+        {songs?.map((song) => (
+          <SongItem key={song?.id} song={song} />
+        ))}
+      </ul>
       <Link to="/playlists">Back to Playlists</Link>
     </>
   );

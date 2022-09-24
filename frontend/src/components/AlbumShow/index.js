@@ -7,19 +7,19 @@ const AlbumShow = () => {
 
   return (
     <>
-      ID: {album.id}
+      ID: {album?.id}
       <br />
-      Title: {album.title}
+      Title: {album?.title}
       <br />
-      Description: {album.description}
+      Description: {album?.description}
       <br />
-      Created At: {album.createdAt}
+      Created At: {album?.createdAt}
       <br />
-      Updated At: {album.updatedAt}
+      Updated At: {album?.updatedAt}
       <br />
-      Preview Image: {album.previewImage}
+      Preview Image: {album?.previewImage}
       <br />
-      <Link to="/frontendalbums">Back to Albums List</Link>
+      <Link to="/albums">Back to Albums List</Link>
     </>
   );
 };

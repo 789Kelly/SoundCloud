@@ -8,7 +8,7 @@ function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
 
   let sessionLinks;
-  if (sessionUser) {
+  if (sessionUser?.id) {
     sessionLinks = <ProfileButton user={sessionUser} />;
   } else {
     sessionLinks = (
@@ -25,7 +25,7 @@ function Navigation({ isLoaded }) {
         <NavLink exact to="/">
           Home
         </NavLink>
-        <NavLink to="/frontendalbums">Albums</NavLink>
+        <NavLink to="/albums">Albums</NavLink>
         <NavLink to="/playlists">My Playlists</NavLink>
         {isLoaded && sessionLinks}
       </li>
