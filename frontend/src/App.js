@@ -13,6 +13,7 @@ import PlaylistsPage from "./components/PlaylistsPage";
 import CreatePlaylistForm from "./components/CreatePlaylistForm";
 import EditPlaylistForm from "./components/EditPlaylistForm";
 import PlaylistShow from "./components/PlaylistShow";
+import SongForm from "./components/SongForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -43,6 +44,9 @@ function App() {
           </Route>
           <Route path="/albums/:albumId/edit">
             <EditAlbumForm />
+          </Route>
+          <Route path="/albums/:albumId/songs/new">
+            <SongForm />
           </Route>
           <Route exact path="/playlists">
             <PlaylistsPage />

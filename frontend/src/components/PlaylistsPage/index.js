@@ -2,11 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import PlaylistItem from "../PlaylistItem";
 import { fetchPlaylists } from "../../store/playlists";
 import { useEffect } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 const PlaylistsPage = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
+
   const playlists = Object.values(useSelector((state) => state.playlists));
   const sessionUser = useSelector((state) => state.session.user);
   // if no session user, there shouldn't be any playlists so redirect to /; but why is it showing all playlists with user logged in

@@ -1,10 +1,11 @@
 import { csrfFetch } from "./csrf";
 
 const LOAD_ALBUMS = "albums/load";
-// const ADD_SONG = "songs/add";
+const ADD_SONG = "songs/add";
 const ADD_ALBUM = "albums/add";
 const DELETE_ALBUM = "albums/delete";
 const EDIT_ALBUM = "albums/edit";
+const LOAD_ALBUM = "album/load";
 
 const loadAlbums = (albums) => {
   return {
@@ -13,12 +14,12 @@ const loadAlbums = (albums) => {
   };
 };
 
-// const addSong = (song) => {
-//   return {
-//     type: ADD_SONG,
-//     payload: song,
-//   };
-// };
+const addSong = (song) => {
+  return {
+    type: ADD_SONG,
+    payload: song,
+  };
+};
 
 export const addAlbum = (album) => {
   return {
@@ -41,11 +42,25 @@ export const editAlbum = (id) => {
   };
 };
 
+const loadAlbum = (payload) => {
+  return {
+    type: LOAD_ALBUM,
+    payload,
+  };
+};
+
 export const fetchAlbums = () => async (dispatch) => {
   const res = await csrfFetch("/api/albums");
   const albums = await res.json();
 
   dispatch(loadAlbums(albums));
+};
+
+export const fetchLoadAlbum = (id) => async (dispatch) => {
+  const res = await csrfFetch(`/api/albums/${id}`);
+  const album = await res.json();
+
+  dispatch(loadAlbum(album.Songs));
 };
 
 export const fetchAlbum = (album) => async (dispatch) => {
@@ -64,7 +79,7 @@ export const fetchAlbum = (album) => async (dispatch) => {
 };
 
 export const fetchDeleteAlbum = (payload) => async (dispatch) => {
-  const res = await csrfFetch(`/api/albums/${payload}`, {
+  await csrfFetch(`/api/albums/${payload}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ payload }),
@@ -87,16 +102,16 @@ export const fetchEditAlbum = (album) => async (dispatch) => {
   return data;
 };
 
-// export const uploadSong = (object) => async (dispatch) => {
-//   const { song, albumId } = object;
-//   const response = await csrfFetch(`/albums/${albumId}/songs`, {
-//     method: "POST",
-//     body: JSON.stringify(song),
-//   });
-//   const data = await response.json();
-//   dispatch(addSong(data.song));
-//   return data;
-// };
+export const uploadSong = (object) => async (dispatch) => {
+  const { nested, albumId } = object;
+  const response = await csrfFetch(`/api/albums/${albumId}/songs`, {
+    method: "POST",
+    body: JSON.stringify(nested),
+  });
+  const data = await response.json();
+  dispatch(addSong(data));
+  return data;
+};
 // return data instead of response bc response is encoded
 // want to return data bc you're going to history.push the user to a new page that has the data as a song on the album list of songs
 
@@ -122,6 +137,14 @@ const albumReducer = (state = {}, action) => {
       newState = { ...state };
       newState[action.payload.id] = action.payload;
       return newState;
+    case ADD_SONG:
+      newState = { ...state };
+      newState[action.payload.id] = action.payload;
+      return newState;
+    case LOAD_ALBUM:
+      newState = { ...state };
+      newState.Songs = action.payload;
+      return newState;
     default:
       return state;
   }
@@ -137,4 +160,4 @@ export default albumReducer;
 //redirect if someone tries to go to url when user empty/not authorized
 //do home page and miscellaneous route "Page Doesn't Exist"
 //albums/hello giving an error instead of redirecting
-//albums/2 giving empty data if typed in
+//albums/2 giving empty data if typed in- load data with thunk

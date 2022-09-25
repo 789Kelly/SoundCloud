@@ -1,25 +1,28 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import SongItem from "../SongItem";
+import { fetchLoadAlbum } from "../../store/albums";
+import { useEffect } from "react";
 
 const AlbumShow = () => {
+  const dispatch = useDispatch();
+
   const { albumId } = useParams();
-  const album = useSelector((state) => state.albums[albumId]);
+  const songs = useSelector((state) => state.albums.Songs);
+
+  useEffect(() => {
+    dispatch(fetchLoadAlbum(albumId));
+  }, [dispatch, albumId]);
 
   return (
     <>
-      ID: {album?.id}
-      <br />
-      Title: {album?.title}
-      <br />
-      Description: {album?.description}
-      <br />
-      Created At: {album?.createdAt}
-      <br />
-      Updated At: {album?.updatedAt}
-      <br />
-      Preview Image: {album?.previewImage}
-      <br />
-      <Link to="/albums">Back to Albums List</Link>
+      <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
+      <ul>
+        {songs?.map((song) => (
+          <SongItem key={song?.id} song={song} />
+        ))}
+      </ul>
+      <Link to="/albums">Back to Albums</Link>
     </>
   );
 };
