@@ -157,7 +157,6 @@ export default albumReducer;
 //image URL's
 //get rid of bullet on navigation
 //reseed database
-//redirect if someone tries to go to url when user empty/not authorized
 //do home page and miscellaneous route "Page Doesn't Exist"
 //albums/hello giving an error instead of redirecting
-//albums/2 giving empty data if typed in- load data with thunk
+//you can see other routes' data flash on load
