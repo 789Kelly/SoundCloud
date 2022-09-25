@@ -2,12 +2,13 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { uploadSong } from "../../store/albums";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const CreateSongForm = () => {
   const { albumId } = useParams();
-  // let album = useSelector((state) => state.albums[albumId]);
-  // const user = useSelector((state) => state.session.user);
+  let album = useSelector((state) => state.albums[albumId]);
+  const user = useSelector((state) => state.session.user);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -19,8 +20,8 @@ const CreateSongForm = () => {
   const [errors, setErrors] = useState([]);
   //dispatch in a useeffect if album is empty
 
-  // if (!user.id) return <Redirect to="/albums" />;
-  // if (album?.userId !== user.id) return <Redirect to="/albums" />;
+  if (!user?.id) return <Redirect to="/albums" />;
+  if (album?.userId !== user?.id) return <Redirect to="/albums" />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();

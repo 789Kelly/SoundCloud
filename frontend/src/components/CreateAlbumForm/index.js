@@ -10,7 +10,7 @@ const CreateAlbumForm = () => {
     imageUrl: "",
   };
 
-  if (!sessionUser.id) return <Redirect to="/" />;
+  if (!sessionUser?.id) return <Redirect to="/albums" />;
   return <AlbumForm album={album} formType="Add Album" />;
 };
 

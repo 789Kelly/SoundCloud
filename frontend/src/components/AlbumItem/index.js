@@ -13,7 +13,7 @@ const AlbumItem = ({ album }) => {
     await dispatch(fetchDeleteAlbum(album.id));
   };
 
-  if (user && album.userId === user.id) {
+  if (user?.id && album?.userId === user?.id) {
     return (
       <>
         <Link to={`/albums/${album.id}`}>{album.title}</Link>

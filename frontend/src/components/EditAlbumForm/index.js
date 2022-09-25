@@ -19,8 +19,8 @@ const EditAlbumForm = () => {
   const [errors, setErrors] = useState([]);
   //dispatch in a useeffect if album is empty
 
-  if (!user.id) return <Redirect to="/albums" />;
-  if (album?.userId !== user.id) return <Redirect to="/albums" />;
+  if (!user?.id) return <Redirect to="/albums" />;
+  if (album?.userId !== user?.id) return <Redirect to="/albums" />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();

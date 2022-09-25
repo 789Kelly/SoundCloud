@@ -36,7 +36,7 @@ function App() {
           <Route exact path="/albums">
             <AlbumsPage />
           </Route>
-          <Route path="/albums/new">
+          <Route exact path="/albums/new">
             <CreateAlbumForm />
           </Route>
           <Route exact path="/albums/:albumId">
@@ -51,7 +51,7 @@ function App() {
           <Route exact path="/playlists">
             <PlaylistsPage />
           </Route>
-          <Route path="/playlists/new">
+          <Route exact path="/playlists/new">
             <CreatePlaylistForm />
           </Route>
           <Route exact path="/playlists/:playlistId">

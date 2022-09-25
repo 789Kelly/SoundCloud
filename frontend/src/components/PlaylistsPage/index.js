@@ -14,9 +14,9 @@ const PlaylistsPage = () => {
     dispatch(fetchPlaylists());
   }, [dispatch]);
 
-  if (!sessionUser.id) return <Redirect to="/" />;
+  if (!sessionUser?.id) return <Redirect to="/" />;
 
-  if (!playlists.length) {
+  if (!playlists?.length) {
     return (
       <>
         <h2>Nothing to hear here</h2>
@@ -27,8 +27,8 @@ const PlaylistsPage = () => {
     return (
       <>
         <ul>
-          {playlists.map((playlist) => (
-            <PlaylistItem key={playlist.id} playlist={playlist} />
+          {playlists?.map((playlist) => (
+            <PlaylistItem key={playlist?.id} playlist={playlist} />
           ))}
         </ul>
         <Link to="/playlists/new">Add New Playlist</Link>

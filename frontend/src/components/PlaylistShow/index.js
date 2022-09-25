@@ -25,8 +25,6 @@ const PlaylistShow = () => {
       Updated At: {playlist?.updatedAt}
       <br />
       Preview Image: {playlist?.previewImage}
-      <br />
-      <Link to="/playlists">Back to Playlists</Link>
     </>
   );
 };

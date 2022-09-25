@@ -16,8 +16,8 @@ const EditPlaylistForm = () => {
   const [previewImage, setPreviewImage] = useState(playlist?.previewImage);
   const [errors, setErrors] = useState([]);
 
-  if (!user.id) return <Redirect to="/" />;
-  if (playlist?.userId !== user.id) return <Redirect to="/playlists" />;
+  if (!user?.id) return <Redirect to="/" />;
+  if (playlist?.userId !== user?.id) return <Redirect to="/playlists" />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();

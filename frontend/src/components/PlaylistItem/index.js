@@ -13,7 +13,7 @@ const PlaylistItem = ({ playlist }) => {
     await dispatch(fetchDeletePlaylist(playlist.id));
   };
 
-  if (playlist.userId === user.id) {
+  if (playlist?.userId === user?.id) {
     return (
       <>
         <Link to={`/playlists/${playlist.id}`}>{playlist.name}</Link>
