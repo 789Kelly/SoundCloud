@@ -172,12 +172,12 @@ input {
   text-align: right;
 }
 
-.right-4 {
+/* .right-4 {
   padding: 20px 0 5px 55px;
   height: 15px;
   width: 28%;
   text-align: right;
-}
+} */
 
 .right-2 {
   color: black;
@@ -207,6 +207,24 @@ input {
 }
 
 .apple {
+  border: none;
+  border-radius: 3px;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.container-42 {
+  /* margin: auto; */
+  margin-left: 50px;
+  width: 64%;
+  padding: 25px 0 0 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.google {
   border: none;
   border-radius: 3px;
   background-color: white;

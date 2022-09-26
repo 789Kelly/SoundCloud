@@ -50,15 +50,30 @@ function Home() {
             SoundCloud is available on Web, iOS, Android, Sonos, Chromecast, and
             Xbox One.
           </div>
-          <div className="right-4">
+          <div className="container-42">
             <a
               href="https://apps.apple.com/us/app/soundcloud/id336353151"
               target={"_blank"}
+              className="right-12"
+              style={{ maxWidth: "45%" }}
             >
               <button className="apple">
                 <img
                   src="/images/apple.png"
                   alt="Download on the App Store"
+                  height="100%"
+                  width="100%"
+                />
+              </button>
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.soundcloud.android&hl=us"
+              target={"_blank"}
+            >
+              <button className="google">
+                <img
+                  src="/images/android.png"
+                  alt="Get it on Google Play"
                   height="100%"
                   width="100%"
                 />
