@@ -50,7 +50,7 @@
   margin: 0 20px;
   background-color: rgb(255, 94, 0);
   color: white;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .btn-1 {
@@ -65,5 +65,5 @@
   margin: 0 20px;
   background-color: black;
   color: white;
-  border-radius: 5px;
+  border-radius: 3px;
 }
