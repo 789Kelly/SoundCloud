@@ -1,0 +1,148 @@
+.container-1 {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered-1 {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+}
+
+.centered-2 {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  line-height: 22pt;
+}
+
+.centered-3 {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn {
+  text-align: center;
+  display: inline-block;
+  padding: 15px 40px;
+  border: 1px solid rgb(255, 94, 0);
+  cursor: pointer;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 20px;
+  background-color: rgb(255, 94, 0);
+  color: white;
+  border-radius: 5px;
+}
+
+.container-2 {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input {
+  width: 800px;
+  height: 40px;
+  background-color: rgba(211, 211, 211, 0.35);
+  border-radius: 5px;
+  border: none;
+}
+
+::placeholder {
+  padding-left: 20px;
+  font-size: 15px;
+  color: rgba(128, 128, 128, 0.605);
+}
+
+/* .container-6 {
+  display: table;
+  height: 200px;
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+/* } */
+
+.centered-4 {
+  text-align: center;
+  font-size: 35px;
+  padding: 60px 10px 10px 10px;
+}
+
+.centered-5 {
+  text-align: center;
+  font-size: 20px;
+  padding: 10px 10px 10px 10px;
+}
+
+.centered-6 {
+  text-align: center;
+  padding: 10px 10px 10px 10px;
+}
+
+.container-7 {
+  margin: auto;
+  width: 15%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-3 {
+  text-align: center;
+  display: inline-block;
+  padding: 11px 15px;
+  border: 1px solid lightgrey;
+  cursor: pointer;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 20px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+}
+
+.fine-print {
+  font-size: 11px;
+  color: black;
+}
+
+.container-5 {
+  margin: auto;
+  width: 70%;
+  padding: 25px 40px 25px 0;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: black;
+}
+
+.left-1 {
+  color: white;
+  padding: 0 0 10px 60px;
+  font-size: 35px;
+}
+
+.left-2 {
+  color: white;
+  padding: 10px 60px;
+  font-size: 20px;
+  line-height: 150%;
+}
+
+.left-text {
+  padding: 37px 40px 10px 0;
+  max-width: 50%;
+}

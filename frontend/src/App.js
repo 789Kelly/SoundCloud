@@ -13,7 +13,8 @@ import PlaylistsPage from "./components/PlaylistsPage";
 import CreatePlaylistForm from "./components/CreatePlaylistForm";
 import EditPlaylistForm from "./components/EditPlaylistForm";
 import PlaylistShow from "./components/PlaylistShow";
-import SongForm from "./components/SongForm";
+import CreateSongForm from "./components/CreateSongForm";
+import Home from "./components/Home";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
           <Route path="/login">
             <LoginFormPage />
           </Route>
@@ -46,7 +50,7 @@ function App() {
             <EditAlbumForm />
           </Route>
           <Route path="/albums/:albumId/songs/new">
-            <SongForm />
+            <CreateSongForm />
           </Route>
           <Route exact path="/playlists">
             <PlaylistsPage />
