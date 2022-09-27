@@ -52,13 +52,13 @@
   align-items: center;
 }
 
-input {
+/* input {
   width: 800px;
   height: 40px;
   background-color: rgba(211, 211, 211, 0.35);
   border-radius: 3px;
   border: none;
-}
+} */
 
 ::placeholder {
   padding-left: 20px;

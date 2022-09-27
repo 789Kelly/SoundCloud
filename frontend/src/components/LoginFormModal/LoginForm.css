@@ -1,0 +1,102 @@
+#login-btn {
+  text-align: center;
+  /* display: inline-block; */
+  padding: 15px 40px;
+  border: 1px solid rgb(255, 94, 0);
+  cursor: pointer;
+  letter-spacing: 2px;
+  /* position: relative; */
+  overflow: hidden;
+  margin: 0 20px;
+  background-color: rgb(255, 94, 0);
+  color: white;
+  border-radius: 3px;
+  width: 81%;
+  margin-top: 10px;
+  /* height: 20px; */
+  /* height: 40px; */
+}
+
+.email {
+  width: 80%;
+  height: 35px;
+  background-color: white;
+  border-radius: 3px;
+  /* border: none; */
+  border-color: rgba(211, 211, 211, 0.944);
+  border-width: 1px;
+  margin: 10px 10px 10px 10px;
+  /* padding: 10px; */
+  /* text-align: lef; */
+}
+
+/* input {
+  width: 800px;
+  height: 40px;
+  background-color: rgba(211, 211, 211, 0.35);
+  border-radius: 3px;
+  border: none;
+} */
+
+.modal-container {
+  text-align: center;
+}
+
+#text {
+  text-align: left;
+  /* padding: 10px 40px 0px 40px; */
+  font-size: 11px;
+  color: rgba(128, 128, 128, 0.815);
+  line-height: 150%;
+  margin: 20px 30px 0 40px;
+}
+
+hr {
+  width: 50%;
+  /* color: black; */
+  height: 1px;
+  border-width: 0;
+  background-color: black;
+  /* border-width: 0; */
+}
+
+#or {
+  font-size: 14px;
+  padding: 0 20px 0 20px;
+  /* font-weight: bold; */
+}
+
+#or-div {
+  margin: auto;
+  /* margin-top: 10px; */
+  width: 80%;
+  /* padding: 10px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#login-btn-demo {
+  text-align: center;
+  /* display: inline-block; */
+  padding: 15px 40px;
+  border: 1px solid #4267b2;
+  cursor: pointer;
+  letter-spacing: 2px;
+  /* position: relative; */
+  overflow: hidden;
+  margin: 0 20px;
+  background-color: #4267b2;
+  color: white;
+  border-radius: 3px;
+  width: 81%;
+  /* height: 20px; */
+  /* height: 40px; */
+}
+
+.login-ul-errors {
+  color: rgb(212, 25, 25);
+  font-size: 11px;
+  text-align: left;
+  margin: 20px 10px 10px 10px;
+}
