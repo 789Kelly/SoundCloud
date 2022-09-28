@@ -19,9 +19,10 @@ function LoginFormPage() {
     return dispatch(sessionActions.login({ credential, password })).catch(
       async (res) => {
         const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-        if (!sessionUser.id)
-          setErrors([...errors, "Invalid username or password"]);
+        if (data && data.errors) {
+          setErrors(data.errors);
+        } else if (!sessionUser.id)
+          return setErrors(["Invalid username or password"]);
       }
     );
   };
@@ -39,7 +40,7 @@ function LoginFormPage() {
           type="text"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
-          required
+          // required
         />
       </label>
       <label>
@@ -48,10 +49,12 @@ function LoginFormPage() {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required
+          // required
         />
       </label>
-      <button type="submit">Log In</button>
+      <button type="submit" disabled={errors.length > 0}>
+        Log In
+      </button>
     </form>
   );
 }

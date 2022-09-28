@@ -1,0 +1,91 @@
+#accept-btn {
+  text-align: center;
+  /* display: inline-block; */
+  padding: 15px 40px;
+  border: 1px solid rgb(255, 94, 0);
+  cursor: pointer;
+  letter-spacing: 2px;
+  /* position: relative; */
+  overflow: hidden;
+  margin: 0 20px;
+  background-color: rgb(255, 94, 0);
+  color: white;
+  border-radius: 3px;
+  width: 81%;
+  margin-top: 10px;
+  margin-left: 40px;
+}
+
+.sign-email {
+  width: 80%;
+  height: 35px;
+  background-color: white;
+  border-radius: 3px;
+  /* border: none; */
+  border-color: rgba(211, 211, 211, 0.944);
+  border-width: 1px;
+  margin: 0 10px 0 10px;
+  /* padding: 10px; */
+  /* text-align: lef; */
+}
+
+#create-title {
+  font-size: 28px;
+  line-height: 150%;
+  text-align: center;
+}
+
+#create-top {
+  text-align: center;
+}
+
+#create-bottom {
+  margin: auto;
+  /* width: 9%; */
+  /* padding: 25px 40px 25px 0; */
+  display: flex-column;
+  justify-content: space-evenly;
+  /* background-color: black; */
+  /* align-items: center; */
+}
+
+#create-fine {
+  text-align: left;
+  /* padding: 10px 40px 0px 40px; */
+  font-size: 11px;
+  color: rgba(128, 128, 128, 0.815);
+  line-height: 150%;
+  margin: 10px 30px 0 40px;
+}
+
+.create-label {
+  font-size: 12px;
+  margin: 0 10px 0 40px;
+}
+
+.sign-user {
+  width: 80%;
+  height: 35px;
+  background-color: white;
+  border-radius: 3px;
+  /* border: none; */
+  border-color: rgba(211, 211, 211, 0.944);
+  border-width: 1px;
+  margin: 0 10px 0 40px;
+}
+
+#sign-hr {
+  height: 1px;
+  border-width: 0;
+  background-color: black;
+  width: 81%;
+  margin-top: 30px;
+}
+
+.sign-errors {
+  color: rgb(212, 25, 25);
+  font-size: 11px;
+  text-align: left;
+  margin: 20px 20px 10px 20px;
+  line-height: 150%;
+}

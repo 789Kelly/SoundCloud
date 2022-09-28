@@ -24,9 +24,10 @@ function LoginForm() {
     return dispatch(sessionActions.login({ credential, password })).catch(
       async (res) => {
         const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-        if (!sessionUser?.id)
-          setErrors([...errors, "Invalid username or password"]);
+        if (data && data.errors) {
+          setErrors(data.errors);
+        } else if (!sessionUser.id)
+          return setErrors(["Invalid username or password"]);
       }
     );
   };
@@ -97,9 +98,9 @@ function LoginForm() {
           settings. For additional info please refer to our Privacy Policy.
         </p>
         <div id="or-div">
-          <hr />
+          <hr className="log-hr" />
           <p id="or">or</p>
-          <hr />
+          <hr className="log-hr" />
         </div>
         <button
           id="login-btn-demo"
