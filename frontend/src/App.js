@@ -44,7 +44,7 @@ function App() {
             <CreateAlbumForm />
           </Route>
           <Route exact path="/albums/:albumId">
-            <AlbumShow />
+            <AlbumShow isLoaded={isLoaded} />
           </Route>
           <Route path="/albums/:albumId/edit">
             <EditAlbumForm />

@@ -4,59 +4,64 @@ import SongItem from "../SongItem";
 import { fetchLoadAlbum } from "../../store/albums";
 import { useEffect } from "react";
 
-const AlbumShow = () => {
+const AlbumShow = ({ isLoaded }) => {
   const dispatch = useDispatch();
 
   const { albumId } = useParams();
   const songs = useSelector((state) => state.albums.Songs);
   const user = useSelector((state) => state.session.user);
+  let songLinks;
+
+  if (user?.id && songs?.length) {
+    songLinks = (
+      <>
+        <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
+        <ul>
+          {songs?.map((song) => (
+            <SongItem key={song?.id} song={song} />
+          ))}
+        </ul>
+        <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
+      </>
+    );
+  } else if (!user?.id && songs?.length) {
+    songLinks = (
+      <>
+        <ul>
+          {songs?.map((song) => (
+            <SongItem key={song?.id} song={song} />
+          ))}
+        </ul>
+      </>
+    );
+  } else if (user?.id && !songs.length) {
+    songLinks = (
+      <>
+        <h2>You haven't added any songs yet!</h2>
+        <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
+      </>
+    );
+  } else {
+    songLinks = (
+      <>
+        <h2>No one has added any songs yet!</h2>
+      </>
+    );
+  }
 
   useEffect(() => {
     dispatch(fetchLoadAlbum(albumId));
   }, [dispatch, albumId]);
 
-  if (user?.id && songs?.length) {
-    return (
-      <>
-        <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
-        <Link to="/albums">Back to Albums</Link>
-        <ul>
-          {songs?.map((song) => (
-            <SongItem key={song?.id} song={song} />
-          ))}
-        </ul>
-        <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
-        <Link to="/albums">Back to Albums</Link>
-      </>
-    );
-  } else if (!user?.id && songs?.length) {
-    return (
-      <>
-        <Link to="/albums">Back to Albums</Link>
-        <ul>
-          {songs?.map((song) => (
-            <SongItem key={song?.id} song={song} />
-          ))}
-        </ul>
-        <Link to="/albums">Back to Albums</Link>
-      </>
-    );
-  } else if (user?.id && !songs.length) {
-    return (
-      <>
-        <h2>You haven't added any songs yet!</h2>
-        <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
-        <Link to="/albums">Back to Albums</Link>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <h2>No one has added any songs yet!</h2>
-        <Link to="/albums">Back to Albums</Link>
-      </>
-    );
-  }
+  return (
+    <>
+      <Link to="/discover">Back to Albums</Link>
+      <ul>
+        <li>{isLoaded && songLinks}</li>
+      </ul>
+      <Link to="/discover">Back to Albums</Link>
+    </>
+  );
 };
 
 export default AlbumShow;
