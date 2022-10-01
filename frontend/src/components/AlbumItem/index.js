@@ -45,10 +45,11 @@ const AlbumItem = ({ album }) => {
       <br />
       <img
         src={album.previewImage}
-        alt="Album Preview Image"
+        alt="Album PreviewImage"
         // style={{ width: "100%" }}
       />
-      <br />
+      console.log(
+      <img />)
     </>
   );
 };
