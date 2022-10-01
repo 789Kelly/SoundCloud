@@ -34,14 +34,15 @@ const AlbumShow = ({ isLoaded }) => {
         </ul>
       </>
     );
-  } else if (user?.id && !songs?.length) {
-    songLinks = (
-      <>
-        <h2>You haven't added any songs yet!</h2>
-        <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
-      </>
-    );
   }
+  // } else if (user?.id && !songs?.length) {
+  //   songLinks = (
+  //     <>
+  //       <h2>You haven't added any songs yet!</h2>
+  //       <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
+  //     </>
+  //   );
+  // }
   // } else if (!user?.id && !songs?.length) {
   //   songLinks = (
   //     <>
