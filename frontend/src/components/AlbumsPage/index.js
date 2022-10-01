@@ -13,41 +13,41 @@ const AlbumsPage = () => {
     dispatch(fetchAlbums());
   }, [dispatch]);
 
-  if (!user?.id && !albums.length) {
-    return (
-      <>
-        <h2>No one has added any albums yet!</h2>
-      </>
-    );
-  } else if (user?.id && !albums.length) {
-    return (
-      <>
-        <h2>No one has added any albums yet!</h2>
-        <Link to="/albums/new">Add New Album</Link>
-      </>
-    );
-  } else if (!user?.id && albums.length) {
-    return (
-      <>
-        <ul>
-          {albums.map((album) => (
-            <AlbumItem key={album.id} album={album} />
-          ))}
-        </ul>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <ul>
-          {albums.map((album) => (
-            <AlbumItem key={album.id} album={album} />
-          ))}
-        </ul>
-        <Link to="/albums/new">Add New Album</Link>
-      </>
-    );
-  }
+  // if (!user?.id && !albums.length) {
+  //   return (
+  //     <>
+  //       <h2>No one has added any albums yet!</h2>
+  //     </>
+  //   );
+  // } else if (user?.id && !albums.length) {
+  //   return (
+  //     <>
+  //       <h2>No one has added any albums yet!</h2>
+  //       <Link to="/albums/new">Add New Album</Link>
+  //     </>
+  //   );
+  // } else if (!user?.id && albums.length) {
+  //   return (
+  //     <>
+  //       <ul>
+  //         {albums.map((album) => (
+  //           <AlbumItem key={album.id} album={album} />
+  //         ))}
+  //       </ul>
+  //     </>
+  //   );
+  // } else {
+  return (
+    <>
+      <ul>
+        {albums.map((album) => (
+          <AlbumItem key={album.id} album={album} />
+        ))}
+      </ul>
+      {user?.id && <Link to="/albums/new">Add New Album</Link>}
+    </>
+  );
+  // }
 };
 
 export default AlbumsPage;
