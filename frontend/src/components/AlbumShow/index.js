@@ -15,17 +15,16 @@ const AlbumShow = () => {
     dispatch(fetchLoadAlbum(albumId));
   }, [dispatch, albumId]);
 
-  if (!user?.id && !songs?.length) {
+  if (user?.id && songs?.length) {
     return (
       <>
-        <h2>No one has added any songs yet!</h2>
+        <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
         <Link to="/albums">Back to Albums</Link>
-      </>
-    );
-  } else if (user?.id && !songs?.length) {
-    return (
-      <>
-        <h2>You haven't added any songs yet!</h2>
+        <ul>
+          {songs?.map((song) => (
+            <SongItem key={song?.id} song={song} />
+          ))}
+        </ul>
         <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
         <Link to="/albums">Back to Albums</Link>
       </>
@@ -42,17 +41,18 @@ const AlbumShow = () => {
         <Link to="/albums">Back to Albums</Link>
       </>
     );
+  } else if (user?.id && !songs.length) {
+    return (
+      <>
+        <h2>You haven't added any songs yet!</h2>
+        <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
+        <Link to="/albums">Back to Albums</Link>
+      </>
+    );
   } else {
     return (
       <>
-        <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
-        <Link to="/albums">Back to Albums</Link>
-        <ul>
-          {songs?.map((song) => (
-            <SongItem key={song?.id} song={song} />
-          ))}
-        </ul>
-        <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
+        <h2>No one has added any songs yet!</h2>
         <Link to="/albums">Back to Albums</Link>
       </>
     );
