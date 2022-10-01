@@ -3,16 +3,24 @@ import AlbumItem from "../AlbumItem";
 import { fetchAlbums } from "../../store/albums";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+// import { fetchSongs } from "../../store/songs";
+// import SongsPage from "../SongsPage";
 
 const AlbumsPage = () => {
   const dispatch = useDispatch();
   const albums = Object.values(useSelector((state) => state.albums));
+  // const songs = Object.values(useSelector((state) => state.songs));
   const user = useSelector((state) => state.session.user);
 
   useEffect(() => {
     dispatch(fetchAlbums());
+    // dispatch(fetchSongs());
   }, [dispatch]);
 
+  // useEffect(() => {
+  //   dispatch(fetchSongs());
+  //   // dispatch(fetchSongs());
+  // }, [dispatch]);
   // if (!user?.id && !albums.length) {
   //   return (
   //     <>
@@ -45,6 +53,14 @@ const AlbumsPage = () => {
         ))}
       </ul>
       {user?.id && <Link to="/albums/new">Add New Album</Link>}
+      {/* <SongsPage /> */}
+      {/* <ul>
+        {songs.map(
+          (song) =>
+            // <ASongItem key={song.id} song={song} />
+            song.name
+        )}
+      </ul> */}
     </>
   );
   // }

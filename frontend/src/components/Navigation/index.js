@@ -34,7 +34,7 @@ function Navigation({ isLoaded }) {
         <SignupFormModal />
       </>
     );
-  } else if (!sessionUser?.id && location.pathname === "/albums") {
+  } else if (!sessionUser?.id && location.pathname === "/discover") {
     sessionLinks = (
       <>
         {/* <NavLink className="nav-item" to="/login">

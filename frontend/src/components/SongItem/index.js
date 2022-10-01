@@ -7,7 +7,7 @@ function SongItem({ song }) {
       <br />
       Album ID: {song.albumId}
       <br />
-      Title: {song.title}
+      Song: {song.name}
       <br />
       Description: {song.description}
       <br />
