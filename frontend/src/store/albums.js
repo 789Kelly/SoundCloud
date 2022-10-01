@@ -160,3 +160,5 @@ export default albumReducer;
 //do home page and miscellaneous route "Page Doesn't Exist"
 //albums/hello giving an error instead of redirecting
 //you can see other routes' data flash on load
+//comment in required fields
+//want user to be able to login after form has errors without refreshing

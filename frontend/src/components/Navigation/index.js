@@ -34,15 +34,18 @@ function Navigation({ isLoaded }) {
         <SignupFormModal />
       </>
     );
-  } else {
+  } else if (!sessionUser?.id && location.pathname === "/albums") {
     sessionLinks = (
       <>
-        <NavLink className="nav-item" exact to="/">
-          Home
+        {/* <NavLink className="nav-item" to="/login">
+          <button className="btn-1">Sign in</button>
+        </NavLink> */}
+        <NavLink className="nav-item" to="/">
+          <button className="btn-1">Home</button>
         </NavLink>
-        <NavLink className="nav-item" to="/albums">
+        {/* <NavLink className="nav-item" to="/albums">
           Albums
-        </NavLink>
+        </NavLink> */}
         {/* <NavLink className="nav-item" to="/login">
           Log In
         </NavLink> */}

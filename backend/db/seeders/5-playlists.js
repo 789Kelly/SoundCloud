@@ -5,93 +5,28 @@ const { Playlist } = require("../models");
 const playlists = [
   {
     userId: 1,
-    name: "playlist one",
-    imageUrl: "test1",
+    name: "Female Singer Songwriters Playlist",
+    imageUrl: "https://images.app.goo.gl/Px3czuicikv6ovaEA",
   },
   {
     userId: 2,
-    name: "playlist two",
-    imageUrl: "test2",
+    name: "Classic Canadian Rock",
+    imageUrl: "https://images.app.goo.gl/v7DEQ7CpEqP4QaaK9",
   },
   {
     userId: 3,
-    name: "playlist three",
-    imageUrl: "test3",
+    name: "Instrumental Acoustic Guitar Playlist",
+    imageUrl: "https://images.app.goo.gl/75tHPviH5kZRKxmj8",
   },
   {
     userId: 4,
-    name: "playlist four",
-    imageUrl: "test4",
+    name: "The Best of Bluegrass",
+    imageUrl: "https://images.app.goo.gl/dKrWw37PeGsr73UFA",
   },
   {
     userId: 5,
-    name: "playlist five",
-    imageUrl: "test5",
-  },
-  {
-    userId: 1,
-    name: "playlist six",
-    imageUrl: "test6",
-  },
-  {
-    userId: 2,
-    name: "playlist seven",
-    imageUrl: "test7",
-  },
-  {
-    userId: 3,
-    name: "playlist eight",
-    imageUrl: "test8",
-  },
-  {
-    userId: 4,
-    name: "playlist nine",
-    imageUrl: "test9",
-  },
-  {
-    userId: 5,
-    name: "playlist ten",
-    imageUrl: "test10",
-  },
-  {
-    userId: 1,
-    name: "playlist eleven",
-    imageUrl: "test11",
-  },
-  {
-    userId: 2,
-    name: "playlist twelve",
-    imageUrl: "test12",
-  },
-  {
-    userId: 3,
-    name: "playlist fourteen",
-    imageUrl: "test14",
-  },
-  {
-    userId: 4,
-    name: "playlist fifteen",
-    imageUrl: "test15",
-  },
-  {
-    userId: 5,
-    name: "playlist sixteen",
-    imageUrl: "test16",
-  },
-  {
-    userId: 1,
-    name: "playlist seventeen",
-    imageUrl: "test17",
-  },
-  {
-    userId: 2,
-    name: "playlist eighteen",
-    imageUrl: "test18",
-  },
-  {
-    userId: 3,
-    name: "playlist nineteen",
-    imageUrl: "test19",
+    name: "New Rock Alternative",
+    imageUrl: "https://images.app.goo.gl/Z7KTiy9QR4FxnRFBA",
   },
 ];
 
