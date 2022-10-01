@@ -10,31 +10,31 @@ const AlbumShow = ({ isLoaded }) => {
   const { albumId } = useParams();
   const songs = useSelector((state) => state.albums.Songs);
   const user = useSelector((state) => state.session.user);
-  let songLinks;
+  // let songLinks;
 
-  if (user?.id && songs?.length) {
-    songLinks = (
-      <>
-        <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
-        <ul>
-          {songs?.map((song) => (
-            <SongItem key={song?.id} song={song} />
-          ))}
-        </ul>
-        <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
-      </>
-    );
-  } else if (!user?.id && songs?.length) {
-    songLinks = (
-      <>
-        <ul>
-          {songs?.map((song) => (
-            <SongItem key={song?.id} song={song} />
-          ))}
-        </ul>
-      </>
-    );
-  }
+  // if (user?.id && songs?.length) {
+  //   songLinks = (
+  //     <>
+  //       <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
+  //       <ul>
+  //         {songs?.map((song) => (
+  //           <SongItem key={song?.id} song={song} />
+  //         ))}
+  //       </ul>
+  //       <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
+  //     </>
+  //   );
+  // } else if (!user?.id && songs?.length) {
+  //   songLinks = (
+  //     <>
+  //       <ul>
+  //         {songs?.map((song) => (
+  //           <SongItem key={song?.id} song={song} />
+  //         ))}
+  //       </ul>
+  //     </>
+  //   );
+  // }
   // } else if (user?.id && !songs?.length) {
   //   songLinks = (
   //     <>
@@ -58,9 +58,17 @@ const AlbumShow = ({ isLoaded }) => {
   return (
     <>
       <Link to="/discover">Back to Albums</Link>
+      {user?.id && (
+        <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
+      )}
       <ul>
-        <li>{isLoaded && songLinks}</li>
+        {songs?.map((song) => (
+          <SongItem key={song?.id} song={song} />
+        ))}
       </ul>
+      {user?.id && (
+        <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
+      )}
       <Link to="/discover">Back to Albums</Link>
     </>
   );
