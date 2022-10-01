@@ -34,20 +34,21 @@ const AlbumShow = ({ isLoaded }) => {
         </ul>
       </>
     );
-  } else if (user?.id && !songs.length) {
+  } else if (user?.id && !songs?.length) {
     songLinks = (
       <>
         <h2>You haven't added any songs yet!</h2>
         <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
       </>
     );
-  } else {
-    songLinks = (
-      <>
-        <h2>No one has added any songs yet!</h2>
-      </>
-    );
   }
+  // } else if (!user?.id && !songs?.length) {
+  //   songLinks = (
+  //     <>
+  //       <p>No one has added any songs yet!</p>
+  //     </>
+  //   );
+  // }
 
   useEffect(() => {
     dispatch(fetchLoadAlbum(albumId));
