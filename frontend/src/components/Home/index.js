@@ -33,7 +33,7 @@ function Home() {
         </div>
       </div> */}
       <div className="centered-6">
-        <NavLink to="/albums">
+        <NavLink to="/discover">
           <button className="btn">Explore trending albums</button>
         </NavLink>
       </div>
