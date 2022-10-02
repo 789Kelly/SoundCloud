@@ -56,15 +56,29 @@ function Navigation({ isLoaded }) {
         <SignupFormModal />
       </>
     );
+  } else if (sessionUser?.id && location.pathname === "/discover") {
+    sessionLinks = (
+      <>
+        <NavLink className="nav-item" to="/">
+          <button className="btn-1">Home</button>
+        </NavLink>
+        <NavLink to="/albums/new">
+          <button className="btn-1">Upload</button>
+        </NavLink>
+        <ProfileButton className="nav-item" user={sessionUser} />
+      </>
+    );
   }
 
   return (
     <nav className="navbar">
-      <img
-        src="/images/SoundCloud-logo.png"
-        alt="SoundCloud logo"
-        className="logo"
-      />
+      <NavLink to="/">
+        <img
+          src="/images/SoundCloud-logo.png"
+          alt="SoundCloud logo"
+          className="logo"
+        />
+      </NavLink>
       <ul className="nav-links">
         <li>{isLoaded && sessionLinks}</li>
       </ul>

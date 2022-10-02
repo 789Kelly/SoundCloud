@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { fetchDeleteAlbum } from "../../store/albums";
-import { Link } from "react-router-dom";
+import "./AlbumItem.css";
 
 const AlbumItem = ({ album }) => {
   const dispatch = useDispatch();
@@ -30,26 +31,34 @@ const AlbumItem = ({ album }) => {
   // }
 
   return (
-    <>
-      ID: {album.id}
-      <br />
-      User ID: {album.userId}
-      <br />
-      Title: {album.title}
-      <br />
-      Description: {album.description}
-      <br />
-      Created At: {album.createdAt}
-      <br />
-      Updated At: {album.updatedAt}
-      <br />
-      <img
-        src={album.previewImage}
-        alt="Album PreviewImage"
-        // style={{ width: "100%" }}
-      />
-      {console.log(album.previewImage)}
-    </>
+    <div className="horizontal-ele">
+      <NavLink to={`/albums/${album.id}`}>
+        <img
+          src={album?.previewImage}
+          alt="Album Preview"
+          // style={{ width: "100%" }}
+          className="nav-link"
+        />
+      </NavLink>
+      <div>
+        <NavLink to={`/albums/${album?.id}`} id="album-title">
+          <p>{album?.title}</p>
+        </NavLink>
+        <p id="album-descr">{album?.description}</p>
+      </div>
+      <div className="remove-margin">
+        {album?.userId === user?.id && (
+          <>
+            <NavLink to={`/albums/${album.id}/edit`}>
+              <button className="discover-btn">Edit</button>
+            </NavLink>
+            <button onClick={removeAlbum} className="discover-btn">
+              Delete Album
+            </button>
+          </>
+        )}
+      </div>
+    </div>
   );
 };
 

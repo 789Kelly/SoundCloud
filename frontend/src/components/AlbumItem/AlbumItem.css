@@ -1,0 +1,44 @@
+#album-descr {
+  font-size: 11px;
+  color: rgba(128, 128, 128, 0.815);
+  padding: 0 0 0 0;
+  margin: 0 0 5px 0;
+}
+
+#album-title {
+  font-size: 14px;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-link {
+  inline-size: 100%;
+  aspect-ratio: 16 / 9;
+  /* width: 375px;
+  height: 400px; */
+  object-fit: cover;
+}
+
+.remove-margin {
+  margin-top: 0;
+}
+
+.discover-btn {
+  text-align: center;
+  display: inline-block;
+  /* padding: 15px 40px; */
+  border: 1px solid black;
+  cursor: pointer;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 20px;
+  background-color: black;
+  color: white;
+  border-radius: 3px;
+  /* height: 10px; */
+  margin-left: 0;
+  font-size: 11px;
+}

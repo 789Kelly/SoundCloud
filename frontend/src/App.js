@@ -15,6 +15,7 @@ import EditPlaylistForm from "./components/EditPlaylistForm";
 import PlaylistShow from "./components/PlaylistShow";
 import CreateSongForm from "./components/CreateSongForm";
 import Home from "./components/Home";
+// import Test from "./components/Test";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ function App() {
           </Route> */}
           <Route exact path="/discover">
             <AlbumsPage />
+            {/* <Test /> */}
           </Route>
           <Route exact path="/albums/new">
             <CreateAlbumForm />

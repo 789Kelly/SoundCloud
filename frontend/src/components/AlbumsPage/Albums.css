@@ -1,0 +1,47 @@
+#discover-div-chart {
+  position: absolute;
+  top: 175px;
+}
+
+.horizontal-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 22%;
+  overflow-x: auto;
+}
+
+.horizontal-ele {
+  display: grid;
+  grid-template-rows: min-content;
+}
+
+#discover-div {
+  position: relative;
+}
+
+#discover-title {
+  margin-left: 40px;
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+#charts-10 {
+  margin-left: 40px;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+#best-albums {
+  margin-left: 40px;
+  margin-bottom: 0;
+  font-size: 12px;
+  color: rgba(128, 128, 128, 0.815);
+}
+
+#discover-hr {
+  margin-top: 0;
+  width: 96%;
+  height: 1px;
+  border-width: 0;
+  background-color: rgba(211, 211, 211, 0.4);
+}
