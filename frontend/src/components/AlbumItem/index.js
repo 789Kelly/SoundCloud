@@ -48,8 +48,7 @@ const AlbumItem = ({ album }) => {
         alt="Album PreviewImage"
         // style={{ width: "100%" }}
       />
-      console.log(
-      <img />)
+      {console.log(album.previewImage)}
     </>
   );
 };
