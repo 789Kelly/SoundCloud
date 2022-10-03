@@ -1,0 +1,66 @@
+#playlist-card {
+  width: 30px;
+  height: 30px;
+}
+
+ol {
+  list-style: none;
+  counter-reset: item;
+}
+
+ol > li {
+  counter-increment: item;
+  margin-bottom: 5px;
+}
+
+/* ol > div > li:before {
+  margin-right: 10px;
+  /* margin-left: 250px; */
+/* content: counter(item);
+  color: gray; */
+/* text-align: center; */
+/* display: inline-block; */
+/* font-size: 14px;
+} */
+
+#playlist-item {
+  /* display: inline-block; */
+  margin-left: 235px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 73%;
+}
+
+#play-name {
+  font-size: 14px;
+  padding: 0 0 0 0;
+  margin: 0 0 0 20px;
+  text-decoration: none;
+  color: rgba(128, 128, 128, 0.556);
+}
+
+.btn-3ss {
+  text-align: center;
+  /* display: inline-block; */
+  padding: 5px 10px;
+  border: 1px solid lightgrey;
+  cursor: pointer;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  /* margin-left: 265px;
+  margin-top: 20px; */
+  background-color: white;
+  color: darkslategray;
+  border-radius: 3px;
+  font-size: 10px;
+  margin-left: 5px;
+}
+
+#playlist-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

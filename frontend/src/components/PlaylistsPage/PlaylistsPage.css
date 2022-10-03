@@ -69,13 +69,24 @@
   margin-left: 265px;
   margin-top: 20px;
   background-color: white;
-  color: black;
+  color: darkslategray;
   border-radius: 3px;
 }
 
 #discover-hrs {
   margin-top: 10px;
-  width: 72%;
+  width: 1375px;
+  height: 1px;
+  border-width: 0;
+  background-color: rgba(211, 211, 211, 0.4);
+  margin-left: 265px;
+}
+
+#discover-hrss {
+  margin-top: 1px;
+  margin-left: 225px;
+  margin-bottom: 0;
+  width: 1375px;
   height: 1px;
   border-width: 0;
   background-color: rgba(211, 211, 211, 0.4);

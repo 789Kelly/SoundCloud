@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDeletePlaylist } from "../../store/playlists";
 import { Link, NavLink } from "react-router-dom";
+import "./PlaylistItem.css";
 
 const PlaylistItem = ({ playlist }) => {
   const dispatch = useDispatch();
@@ -13,32 +14,32 @@ const PlaylistItem = ({ playlist }) => {
     await dispatch(fetchDeletePlaylist(playlist.id));
   };
 
-  if (playlist?.userId === user?.id) {
-    return (
-      <>
+  return (
+    <div id="playlist-item">
+      <div id="playlist-flex">
         <NavLink to={`/playlists/${playlist.id}`}>
           <img
             src={playlist.previewImage}
             alt="Playlist Preview"
             // style={{ width: "100%" }}
             // className="nav-link"
+            id="playlist-card"
           />
         </NavLink>
-        <NavLink to={`/playlists/${playlist.id}`}>
+        <NavLink to={`/playlists/${playlist.id}`} id="play-name">
           <p>{playlist.name}</p>
         </NavLink>
-        <p>{playlist.description}</p>
-        <Link to={`/playlists/${playlist.id}/edit`}>Edit</Link>
-        <button onClick={removePlaylist}>Delete Playlist</button>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <Link to={`/playlists/${playlist.id}`}>{playlist.name}</Link>
-      </>
-    );
-  }
+      </div>
+      <div>
+        <NavLink to={`/playlists/${playlist.id}/edit`}>
+          <button className="btn-3ss">Edit</button>
+        </NavLink>
+        <button onClick={removePlaylist} className="btn-3ss">
+          Delete Playlist
+        </button>
+      </div>
+    </div>
+  );
 };
 
 export default PlaylistItem;
