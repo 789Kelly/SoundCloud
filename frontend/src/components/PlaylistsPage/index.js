@@ -44,12 +44,16 @@ const PlaylistsPage = () => {
         <NavLink to={`/playlists/new`}>
           <button className="btn-3s">Add new playlist</button>
         </NavLink>
-        <ul>
+        <hr id="discover-hrs" />
+        <ol>
           {playlists?.map((playlist) => (
-            <PlaylistItem key={playlist?.id} playlist={playlist} />
+            <li>
+              <PlaylistItem key={playlist?.id} playlist={playlist} />
+              <hr id="discover-hrs" />
+            </li>
           ))}
-        </ul>
-        <Link to="/playlists/new">Add New Playlist</Link>
+        </ol>
+        {/* <Link to="/playlists/new">Add New Playlist</Link> */}
       </>
     );
   }

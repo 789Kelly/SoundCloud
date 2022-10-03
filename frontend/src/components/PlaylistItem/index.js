@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDeletePlaylist } from "../../store/playlists";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const PlaylistItem = ({ playlist }) => {
   const dispatch = useDispatch();
@@ -16,7 +16,18 @@ const PlaylistItem = ({ playlist }) => {
   if (playlist?.userId === user?.id) {
     return (
       <>
-        <Link to={`/playlists/${playlist.id}`}>{playlist.name}</Link>
+        <NavLink to={`/playlists/${playlist.id}`}>
+          <img
+            src={playlist.previewImage}
+            alt="Playlist Preview"
+            // style={{ width: "100%" }}
+            // className="nav-link"
+          />
+        </NavLink>
+        <NavLink to={`/playlists/${playlist.id}`}>
+          <p>{playlist.name}</p>
+        </NavLink>
+        <p>{playlist.description}</p>
         <Link to={`/playlists/${playlist.id}/edit`}>Edit</Link>
         <button onClick={removePlaylist}>Delete Playlist</button>
       </>

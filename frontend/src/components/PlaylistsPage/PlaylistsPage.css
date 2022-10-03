@@ -60,7 +60,7 @@
 .btn-3s {
   text-align: center;
   display: inline-block;
-  padding: 11px 15px;
+  padding: 5px 10px;
   border: 1px solid lightgrey;
   cursor: pointer;
   letter-spacing: 2px;
@@ -71,4 +71,12 @@
   background-color: white;
   color: black;
   border-radius: 3px;
+}
+
+#discover-hrs {
+  margin-top: 10px;
+  width: 72%;
+  height: 1px;
+  border-width: 0;
+  background-color: rgba(211, 211, 211, 0.4);
 }
