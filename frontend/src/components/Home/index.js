@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
 import "./Home.css";
+import { useSelector } from "react-redux";
 
 function Home() {
+  const user = useSelector((state) => state.session.user);
+
   return (
     <>
       <div className="container-1">
@@ -17,11 +20,11 @@ function Home() {
           Upload your first track and begin your journey. SoundCloud gives you
           space to create, find your fans, and connect with other artists.
         </div>
-        <div className="centered-3">
+        {/* <div className="centered-3">
           <NavLink to="signup">
             <button className="btn">Start uploading today</button>
           </NavLink>
-        </div>
+        </div> */}
       </div>
       {/* <div className="container-2">
         <input placeholder="Search for artists" />
@@ -32,11 +35,24 @@ function Home() {
           </NavLink>
         </div>
       </div> */}
-      <div className="centered-6">
-        <NavLink to="/discover">
-          <button className="btn">Explore trending albums</button>
-        </NavLink>
-      </div>
+      {!user?.id && (
+        <div className="centered-6">
+          <NavLink to="/discover">
+            <button className="btn">Explore trending albums</button>
+          </NavLink>
+        </div>
+      )}
+      {user?.id && (
+        <div className="two-buttons">
+          <NavLink to="/discover">
+            <button className="btn">Explore trending albums</button>
+          </NavLink>
+          <div>or</div>
+          <NavLink to="/playlists">
+            <button className="btn">Revisit your playlists</button>
+          </NavLink>
+        </div>
+      )}
       <div className="container-4">
         <img
           src="/images/devices.png"

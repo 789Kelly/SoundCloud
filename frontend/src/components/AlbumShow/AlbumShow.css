@@ -1,0 +1,50 @@
+#gradient-box {
+  /* background-color: gray; */
+  background-image: linear-gradient(
+    to bottom left,
+    rgb(61, 54, 53),
+    rgba(58, 56, 48, 0.463)
+  );
+  padding: 20px;
+  width: 70%;
+  margin: auto;
+  /* margin: auto; */
+  /* width: 70%; */
+  /* padding: 25px 40px 25px 0; */
+  display: flex;
+  justify-content: space-between;
+}
+
+#album-img {
+  width: 400px;
+  height: 400px;
+  margin: 0 0 0 0;
+}
+
+#circle {
+  height: 100px;
+  width: 100px;
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  display: flex;
+  line-height: 12px;
+}
+
+#album-titre {
+  background-color: black;
+  color: white;
+  font-size: 22px;
+  padding: 5px;
+}
+
+#album-description {
+  background-color: black;
+  color: white;
+  margin-top: 5px;
+  padding: 5px;
+}

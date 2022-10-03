@@ -68,6 +68,28 @@ function Navigation({ isLoaded }) {
         <ProfileButton className="nav-item" user={sessionUser} />
       </>
     );
+  } else if (sessionUser?.id) {
+    sessionLinks = (
+      <>
+        <NavLink className="nav-item" to="/">
+          <button className="btn-1">Home</button>
+        </NavLink>
+        {/* <NavLink to="/albums/new">
+          <button className="btn-1">Upload</button>
+        </NavLink> */}
+        <ProfileButton className="nav-item" user={sessionUser} />
+      </>
+    );
+  } else {
+    sessionLinks = (
+      <>
+        <NavLink className="nav-item" to="/">
+          <button className="btn-1">Home</button>
+        </NavLink>
+        <LoginFormModal />
+        <SignupFormModal />
+      </>
+    );
   }
 
   return (

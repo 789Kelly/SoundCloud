@@ -1,14 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import SongItem from "../SongItem";
 import { fetchLoadAlbum } from "../../store/albums";
 import { useEffect } from "react";
+import "./AlbumShow.css";
 
-const AlbumShow = ({ isLoaded }) => {
+const AlbumShow = () => {
   const dispatch = useDispatch();
 
   const { albumId } = useParams();
   const songs = useSelector((state) => state.albums.Songs);
+  const album = useSelector((state) => state.albums[albumId]);
   const user = useSelector((state) => state.session.user);
   // let songLinks;
 
@@ -53,23 +55,32 @@ const AlbumShow = ({ isLoaded }) => {
 
   useEffect(() => {
     dispatch(fetchLoadAlbum(albumId));
-  }, [dispatch, albumId]);
+  }, []);
 
   return (
     <>
-      <Link to="/discover">Back to Albums</Link>
+      <div id="gradient-box">
+        <div>
+          <div>
+            <p id="album-titre">{album.title}</p>
+            <p id="album-description"> {album.description} </p>
+          </div>
+          <span id="circle">TRACKS</span>
+        </div>
+        <img src={album?.previewImage} alt="Album Preview" id="album-img" />
+      </div>
       {user?.id && (
-        <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
+        <NavLink to={`/albums/${albumId}/songs/new`}>
+          <button>Add Song</button>
+        </NavLink>
       )}
-      <ul>
+      <ol>
         {songs?.map((song) => (
-          <SongItem key={song?.id} song={song} />
+          <li>
+            <SongItem key={song?.id} song={song} />
+          </li>
         ))}
-      </ul>
-      {user?.id && (
-        <Link to={`/albums/${albumId}/songs/new`}>Add New Song</Link>
-      )}
-      <Link to="/discover">Back to Albums</Link>
+      </ol>
     </>
   );
 };

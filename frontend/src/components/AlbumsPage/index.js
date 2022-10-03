@@ -16,7 +16,7 @@ const AlbumsPage = () => {
   useEffect(() => {
     dispatch(fetchAlbums());
     // dispatch(fetchSongs());
-  }, [dispatch]);
+  }, []);
 
   // useEffect(() => {
   //   dispatch(fetchSongs());

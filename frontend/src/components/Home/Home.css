@@ -231,3 +231,12 @@
   position: relative;
   overflow: hidden;
 }
+
+.two-buttons {
+  margin: auto;
+  width: 35%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
