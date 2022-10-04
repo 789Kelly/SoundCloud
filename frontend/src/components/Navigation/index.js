@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import AlbumFormModal from "../AlbumFormModal";
 import "./Navigation.css";
 //imported LoginFormModal
 
@@ -15,9 +16,9 @@ function Navigation({ isLoaded }) {
   if (sessionUser?.id && location.pathname === "/") {
     sessionLinks = (
       <>
-        <NavLink className="nav-item" to="/playlists">
+        {/* <NavLink className="nav-item" to="/playlists">
           My Playlists
-        </NavLink>
+        </NavLink> */}
         <ProfileButton className="nav-item" user={sessionUser} />
       </>
     );
@@ -62,9 +63,10 @@ function Navigation({ isLoaded }) {
         <NavLink className="nav-item" to="/">
           <button className="btn-1">Home</button>
         </NavLink>
-        <NavLink to="/albums/new">
+        {/* <NavLink to="/albums/new">
           <button className="btn-1">Upload</button>
-        </NavLink>
+        </NavLink> */}
+        <AlbumFormModal />
         <ProfileButton className="nav-item" user={sessionUser} />
       </>
     );

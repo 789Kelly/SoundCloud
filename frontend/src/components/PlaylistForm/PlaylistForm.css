@@ -1,0 +1,176 @@
+#hd-btn {
+  border-radius: 3px;
+  background: #4267b2db;
+  padding: 3px 10px 3px 10px;
+  width: 40px;
+  height: 10px;
+  color: white;
+  font-size: 10px;
+  margin-left: 805px;
+  /* margin-top: 20px; */
+}
+
+#center-form {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(211, 211, 211, 0.4);
+  box-shadow: 0 5px 40px 10px rgba(0, 0, 0, 0.1);
+  width: 865px;
+  /* height: 363px; */
+  padding-top: 15px;
+}
+
+#back-gradient {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(209, 101, 135),
+    rgba(0, 139, 139, 0.795)
+  );
+  padding: 20px;
+  width: 200px;
+  height: 200px;
+  /* margin: auto; */
+  /* margin: auto; */
+  /* width: 70%; */
+  /* padding: 25px 40px 25px 0; */
+  /* display: flex;
+  justify-content: space-between; */
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#basic-orange {
+  /* text-decoration: underline; */
+  color: rgb(255, 94, 0);
+  /* border-bottom-width: 1px;
+  border-bottom-style: solid;
+  padding-bottom: 3px; */
+  font-size: 20px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+#play-form-btn {
+  text-align: center;
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid rgb(255, 94, 0);
+  cursor: pointer;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 20px;
+  background-color: rgb(255, 94, 0);
+  color: white;
+  border-radius: 3px;
+  font-size: 11px;
+}
+
+#important-p {
+  font-size: 11px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+#asterisk-means {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+#asterisk-means:before {
+  content: "* ";
+  color: red;
+}
+
+.playlist-text {
+  font-size: 11px;
+  margin-top: 20px;
+}
+
+.playlist-texts {
+  font-size: 11px;
+  margin-top: 20px;
+}
+
+.playlist-text:after {
+  content: " *";
+  color: red;
+}
+
+.emails {
+  width: 537px;
+  height: 20px;
+  background-color: white;
+  border-radius: 3px;
+  /* border: none; */
+  border-color: rgba(211, 211, 211, 0.944);
+  border-width: 1px;
+  margin-right: 20px;
+  /* margin: 10px 10px 10px 10px; */
+  /* padding: 10px; */
+  /* text-align: lef; */
+}
+
+input:focus {
+  outline: none;
+  border-color: gray;
+  border-style: solid;
+  border-width: 1px;
+}
+
+#create-play-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#discover-hrs2 {
+  margin-top: 0;
+  width: 100px;
+  height: 2px;
+  border-width: 0;
+  background-color: rgb(255, 94, 0);
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+
+.retry {
+  margin-top: 10px;
+  width: 865px;
+  height: 1px;
+  border-width: 0;
+  background-color: rgba(211, 211, 211, 0.4);
+  /* background-color: black; */
+  /* margin-left: 20px; */
+}
+
+.retrys {
+  margin-top: 0;
+  width: 825px;
+  height: 1px;
+  border-width: 0;
+  background-color: rgba(211, 211, 211, 0.4);
+  /* background-color: black; */
+  margin-left: 20px;
+}
+
+#bottom-playlist {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 25px;
+}
+
+.create-play-errors {
+  color: rgb(212, 25, 25);
+  font-size: 11px;
+  text-align: left;
+  margin: 20px 10px 10px 0;
+}

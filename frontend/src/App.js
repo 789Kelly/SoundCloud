@@ -6,7 +6,7 @@ import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import AlbumsPage from "./components/AlbumsPage";
-import CreateAlbumForm from "./components/CreateAlbumForm";
+// import CreateAlbumForm from "./components/CreateAlbumForm";
 import EditAlbumForm from "./components/EditAlbumForm";
 import AlbumShow from "./components/AlbumShow";
 import PlaylistsPage from "./components/PlaylistsPage";
@@ -42,9 +42,9 @@ function App() {
             <AlbumsPage />
             {/* <Test /> */}
           </Route>
-          <Route exact path="/albums/new">
+          {/* <Route exact path="/albums/new">
             <CreateAlbumForm />
-          </Route>
+          </Route> */}
           <Route exact path="/albums/:albumId">
             <AlbumShow isLoaded={isLoaded} />
           </Route>

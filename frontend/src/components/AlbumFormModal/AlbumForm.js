@@ -1,20 +1,20 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchAlbum } from "../../store/albums";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
-const AlbumForm = ({ album, formType }) => {
+const AlbumForm = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
 
-  const [title, setTitle] = useState(album.title);
-  const [description, setDescription] = useState(album.description);
-  const [imageUrl, setImageUrl] = useState(album.imageUrl);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    album = { ...album, title, description, imageUrl };
+    let album = { title, description, imageUrl };
     setErrors([]);
 
     const response = await dispatch(fetchAlbum(album)).catch(async (res) => {
@@ -22,6 +22,7 @@ const AlbumForm = ({ album, formType }) => {
       if (data && data.errors) setErrors(data.errors);
     });
 
+    // return response;
     // if (response) history.push("/discover");
   };
 
