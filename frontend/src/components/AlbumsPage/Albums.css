@@ -45,3 +45,19 @@
   border-width: 0;
   background-color: rgba(211, 211, 211, 0.4);
 }
+
+#upload-btn {
+  /* margin-left: 60px; */
+  text-align: center;
+  /* display: inline-block; */
+  padding: 15px 40px;
+  border: 1px solid black;
+  cursor: pointer;
+  letter-spacing: 2px;
+  /* position: relative; */
+  overflow: hidden;
+  margin: 0 40px;
+  background-color: black;
+  color: white;
+  border-radius: 3px;
+}

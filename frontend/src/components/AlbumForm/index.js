@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchAlbum } from "../../store/albums";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 
 const AlbumForm = ({ album, formType }) => {
   const dispatch = useDispatch();
@@ -22,7 +22,8 @@ const AlbumForm = ({ album, formType }) => {
       if (data && data.errors) setErrors(data.errors);
     });
 
-    // if (response) history.push("/discover");
+    if (response) history.push("/albums");
+    // if (response) return <Redirect to="/albums" />;
   };
 
   return (

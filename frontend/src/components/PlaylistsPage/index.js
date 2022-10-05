@@ -41,18 +41,20 @@ const PlaylistsPage = () => {
           id="album-imgs"
         />
       </div>
-      <NavLink to={`/playlists/new`}>
-        <button className="btn-3s">Add new playlist</button>
-      </NavLink>
-      <hr id="discover-hrs" />
-      <ul>
-        {playlists?.map((playlist) => (
-          <>
-            <PlaylistItem key={playlist?.id} playlist={playlist} />
-            <hr id="discover-hrss" />
-          </>
-        ))}
-      </ul>
+      <div id="for-screens">
+        <NavLink to={`/playlists/new`}>
+          <button className="btn-3s">Add new playlist</button>
+        </NavLink>
+        <hr id="discover-hrs" />
+        <ul className="remove-indent">
+          {playlists?.map((playlist) => (
+            <li key={playlist?.id}>
+              <PlaylistItem playlist={playlist} />
+              <hr id="discover-hrss" />
+            </li>
+          ))}
+        </ul>
+      </div>
       {/* <Link to="/playlists/new">Add New Playlist</Link> */}
     </>
   );

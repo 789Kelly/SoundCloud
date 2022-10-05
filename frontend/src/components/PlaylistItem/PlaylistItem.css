@@ -3,7 +3,7 @@
   height: 30px;
 }
 
-ol {
+/* ol {
   list-style: none;
   counter-reset: item;
 }
@@ -11,7 +11,7 @@ ol {
 ol > li {
   counter-increment: item;
   margin-bottom: 5px;
-}
+} */
 
 /* ol > div > li:before {
   margin-right: 10px;
@@ -25,12 +25,12 @@ ol > li {
 
 #playlist-item {
   /* display: inline-block; */
-  margin-left: 235px;
+  /* margin-left: 235px; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 73%;
+  width: 100%;
 }
 
 #play-name {
@@ -48,7 +48,7 @@ ol > li {
   border: 1px solid lightgrey;
   cursor: pointer;
   letter-spacing: 2px;
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
   /* margin-left: 265px;
   margin-top: 20px; */
@@ -63,4 +63,8 @@ ol > li {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+#right-align-play {
+  text-align: right;
 }

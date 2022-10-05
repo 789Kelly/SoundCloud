@@ -1,7 +1,32 @@
 .profile-dropdown {
   list-style: none;
+  padding-left: 0;
 }
 
-#log-out {
-  margin-left: 30px;
+/* #log-out {
+  margin-left: 0;
+} */
+
+#profile-btn {
+  color: white;
+  background-color: gray;
+  border: none;
+  border-radius: 3px;
+  padding: 7px 66px;
+}
+
+#log-out-btn {
+  text-align: center;
+  display: inline-block;
+  padding: 5px 40px;
+  border: 1px solid gray;
+  cursor: pointer;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  /* margin: 0 0; */
+  background-color: gray;
+  color: white;
+  border-radius: 3px;
+  margin-top: 5px;
 }

@@ -30,12 +30,12 @@ const PlaylistItem = ({ playlist }) => {
           <p>{playlist.name}</p>
         </NavLink>
       </div>
-      <div>
+      <div id="right-align-play">
         <NavLink to={`/playlists/${playlist.id}/edit`}>
           <button className="btn-3ss">Edit</button>
         </NavLink>
         <button onClick={removePlaylist} className="btn-3ss">
-          Delete Playlist
+          Delete
         </button>
       </div>
     </div>

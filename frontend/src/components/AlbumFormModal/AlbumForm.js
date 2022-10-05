@@ -23,7 +23,7 @@ const AlbumForm = () => {
     });
 
     // return response;
-    // if (response) history.push("/discover");
+    // if (response) history.push("/albums");
   };
 
   return (

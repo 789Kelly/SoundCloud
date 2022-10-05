@@ -4,6 +4,7 @@ import { fetchAlbums } from "../../store/albums";
 import { useEffect } from "react";
 // import { Link } from "react-router-dom";
 import "./Albums.css";
+import { NavLink } from "react-router-dom";
 // import { fetchSongs } from "../../store/songs";
 // import SongsPage from "../SongsPage";
 
@@ -11,7 +12,7 @@ const AlbumsPage = () => {
   const dispatch = useDispatch();
   const albums = Object.values(useSelector((state) => state.albums));
   // const songs = Object.values(useSelector((state) => state.songs));
-  // const user = useSelector((state) => state.session.user);
+  const user = useSelector((state) => state.session.user);
 
   useEffect(() => {
     dispatch(fetchAlbums());
@@ -51,7 +52,7 @@ const AlbumsPage = () => {
       <p id="discover-title">Discover Albums</p>
       <hr id="discover-hr" />
       <div id="discover-div-chart">
-        <p id="charts-10">Charts: Top 5</p>
+        <p id="charts-10">Charts: Top Albums</p>
         <p id="best-albums">The best albums of all time</p>
         <ul className="horizontal-container">
           {albums?.map((album) => (
@@ -59,6 +60,7 @@ const AlbumsPage = () => {
           ))}
         </ul>
       </div>
+
       {/* {user?.id && <Link to="/albums/new">Add New Album</Link>} */}
       {/* <SongsPage /> */}
       {/* <ul>
@@ -68,6 +70,11 @@ const AlbumsPage = () => {
             song.name
         )}
       </ul> */}
+      {user?.id && (
+        <NavLink to="/albums/new">
+          <button id="upload-btn">Upload</button>
+        </NavLink>
+      )}
     </div>
   );
   // }

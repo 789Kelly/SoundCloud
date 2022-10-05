@@ -32,18 +32,18 @@ const AlbumItem = ({ album }) => {
 
   return (
     <div className="horizontal-ele">
-      <NavLink to={`/albums/${album.id}`}>
-        <img
-          src={album?.previewImage}
-          alt="Album Preview"
-          // style={{ width: "100%" }}
-          className="nav-link"
-        />
-      </NavLink>
+      {/* <NavLink to={`/albums/${album.id}`}> */}
+      <img
+        src={album?.previewImage}
+        alt="Album Preview"
+        // style={{ width: "100%" }}
+        className="nav-link"
+      />
+      {/* </NavLink> */}
       <div>
-        <NavLink to={`/albums/${album?.id}`} id="album-title">
-          <p>{album?.title}</p>
-        </NavLink>
+        {/* <NavLink to={`/albums/${album?.id}`} id="album-title"> */}
+        <p id="album-title">{album?.title}</p>
+        {/* </NavLink> */}
         <p id="album-descr">{album?.description}</p>
       </div>
       <div className="remove-margin">

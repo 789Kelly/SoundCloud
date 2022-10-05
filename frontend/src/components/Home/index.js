@@ -37,19 +37,19 @@ function Home() {
       </div> */}
       {!user?.id && (
         <div className="centered-6">
-          <NavLink to="/discover">
+          <NavLink to="/albums">
             <button className="btn">Explore trending albums</button>
           </NavLink>
         </div>
       )}
       {user?.id && (
         <div className="two-buttons">
-          <NavLink to="/discover">
-            <button className="btn">Explore trending albums</button>
+          <NavLink to="/albums">
+            <button className="btn-272">Explore trending albums</button>
           </NavLink>
           <div>or</div>
           <NavLink to="/playlists">
-            <button className="btn">Revisit your playlists</button>
+            <button className="btn-272">View your playlists</button>
           </NavLink>
         </div>
       )}
@@ -123,20 +123,22 @@ function Home() {
         <div className="centered-5">
           Save tracks, follow artists and build playlists. All for free.
         </div>
-        <div className="centered-6">
-          <NavLink to="/signup">
-            <button className="btn">Create account</button>
-          </NavLink>
-        </div>
+
+        {/* <div className="centered-6">
+              <NavLink to="/signup">
+                <button className="btn">Create account</button>
+              </NavLink>
+            </div> */}
       </div>
-      <div className="container-7">
-        <p className="fine-print">Already have an account?</p>
-        <div>
-          <NavLink to="/login">
-            <button className="btn-3">Sign in</button>
-          </NavLink>
-        </div>
-      </div>
+
+      {/* <div className="container-7">
+            <p className="fine-print">Already have an account?</p>
+            <div>
+              <NavLink to="/login">
+                <button className="btn-3">Sign in</button>
+              </NavLink>
+            </div>
+          </div> */}
     </>
   );
 }
