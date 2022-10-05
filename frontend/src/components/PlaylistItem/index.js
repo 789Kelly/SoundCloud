@@ -17,18 +17,18 @@ const PlaylistItem = ({ playlist }) => {
   return (
     <div id="playlist-item">
       <div id="playlist-flex">
-        <NavLink to={`/playlists/${playlist.id}`}>
-          <img
-            src={playlist.previewImage}
-            alt="Playlist Preview"
-            // style={{ width: "100%" }}
-            // className="nav-link"
-            id="playlist-card"
-          />
-        </NavLink>
-        <NavLink to={`/playlists/${playlist.id}`} id="play-name">
-          <p>{playlist.name}</p>
-        </NavLink>
+        {/* <NavLink to={`/playlists/${playlist.id}`}> */}
+        {/* <img
+          src={playlist.previewImage}
+          alt="Playlist Preview"
+          // style={{ width: "100%" }}
+          // className="nav-link"
+          id="playlist-card"
+        /> */}
+        {/* </NavLink> */}
+        {/* <NavLink to={`/playlists/${playlist.id}`} id="play-name"> */}
+        <p id="play-name">{playlist.name}</p>
+        {/* </NavLink> */}
       </div>
       <div id="right-align-play">
         <NavLink to={`/playlists/${playlist.id}/edit`}>

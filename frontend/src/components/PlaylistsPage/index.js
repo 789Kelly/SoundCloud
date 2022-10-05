@@ -48,7 +48,7 @@ const PlaylistsPage = () => {
         <hr id="discover-hrs" />
         <ul className="remove-indent">
           {playlists?.map((playlist) => (
-            <li key={playlist?.id}>
+            <li key={playlist.id}>
               <PlaylistItem playlist={playlist} />
               <hr id="discover-hrss" />
             </li>
