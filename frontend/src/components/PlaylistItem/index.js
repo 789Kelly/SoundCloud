@@ -18,13 +18,13 @@ const PlaylistItem = ({ playlist }) => {
     <div id="playlist-item">
       <div id="playlist-flex">
         {/* <NavLink to={`/playlists/${playlist.id}`}> */}
-        {/* <img
+        <img
           src={playlist.previewImage}
           alt="Playlist Preview"
           // style={{ width: "100%" }}
           // className="nav-link"
           id="playlist-card"
-        /> */}
+        />
         {/* </NavLink> */}
         {/* <NavLink to={`/playlists/${playlist.id}`} id="play-name"> */}
         <p id="play-name">{playlist.name}</p>
