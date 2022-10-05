@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchAlbum } from "../../store/albums";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const AlbumForm = () => {
   const dispatch = useDispatch();
-  // const history = useHistory();
+  const history = useHistory();
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
