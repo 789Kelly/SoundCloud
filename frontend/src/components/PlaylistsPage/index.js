@@ -4,8 +4,9 @@ import { fetchPlaylists } from "../../store/playlists";
 import { useEffect } from "react";
 import { Link, Redirect, NavLink } from "react-router-dom";
 import "./PlaylistsPage.css";
+import { useState } from "react";
 
-const PlaylistsPage = ({ isLoaded }) => {
+const PlaylistsPage = () => {
   const dispatch = useDispatch();
 
   const playlists = Object.values(useSelector((state) => state.playlists));
