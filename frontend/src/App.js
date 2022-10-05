@@ -55,7 +55,7 @@ function App() {
             <CreateSongForm />
           </Route>
           <Route exact path="/playlists">
-            <PlaylistsPage />
+            <PlaylistsPage isLoaded={isLoaded} />
           </Route>
           <Route exact path="/playlists/new">
             <CreatePlaylistForm />
