@@ -13,7 +13,7 @@ const playlists = [
     userId: 1,
     name: "Classic Canadian Rock",
     imageUrl:
-      "https://mk0droplrg5q83m5xg0r.kinstacdn.com/wp-content/uploads/2020/10/Screenshot-on-2020-10-20-at-15_16_32.png",
+      "https://zinginstruments.com/wp-content/uploads/Life-is-good-message-written-on-a-beach.jpg",
   },
   {
     userId: 1,
@@ -54,7 +54,7 @@ const playlists = [
     userId: 1,
     name: "Cottage Country",
     imageUrl:
-      "https://i.pinimg.com/564x/34/ed/80/34ed80c6c0f9fb4d9bdf00cae3fc5c52.jpg",
+      "https://www.udiscovermusic.com/wp-content/uploads/2021/06/50s-1000x600-1-1000x600.jpg",
   },
   {
     userId: 1,
@@ -72,7 +72,7 @@ const playlists = [
     userId: 2,
     name: "Classic Canadian Rock",
     imageUrl:
-      "https://mk0droplrg5q83m5xg0r.kinstacdn.com/wp-content/uploads/2020/10/Screenshot-on-2020-10-20-at-15_16_32.png",
+      "https://zinginstruments.com/wp-content/uploads/Life-is-good-message-written-on-a-beach.jpg",
   },
   {
     userId: 2,
@@ -113,7 +113,7 @@ const playlists = [
     userId: 2,
     name: "Cottage Country",
     imageUrl:
-      "https://i.pinimg.com/564x/34/ed/80/34ed80c6c0f9fb4d9bdf00cae3fc5c52.jpg",
+      "https://www.udiscovermusic.com/wp-content/uploads/2021/06/50s-1000x600-1-1000x600.jpg",
   },
   {
     userId: 2,
@@ -131,7 +131,7 @@ const playlists = [
     userId: 3,
     name: "Classic Canadian Rock",
     imageUrl:
-      "https://mk0droplrg5q83m5xg0r.kinstacdn.com/wp-content/uploads/2020/10/Screenshot-on-2020-10-20-at-15_16_32.png",
+      "https://zinginstruments.com/wp-content/uploads/Life-is-good-message-written-on-a-beach.jpg",
   },
   {
     userId: 3,
@@ -172,7 +172,7 @@ const playlists = [
     userId: 3,
     name: "Cottage Country",
     imageUrl:
-      "https://i.pinimg.com/564x/34/ed/80/34ed80c6c0f9fb4d9bdf00cae3fc5c52.jpg",
+      "https://www.udiscovermusic.com/wp-content/uploads/2021/06/50s-1000x600-1-1000x600.jpg",
   },
   {
     userId: 3,
@@ -190,7 +190,7 @@ const playlists = [
     userId: 4,
     name: "Classic Canadian Rock",
     imageUrl:
-      "https://mk0droplrg5q83m5xg0r.kinstacdn.com/wp-content/uploads/2020/10/Screenshot-on-2020-10-20-at-15_16_32.png",
+      "https://zinginstruments.com/wp-content/uploads/Life-is-good-message-written-on-a-beach.jpg",
   },
   {
     userId: 4,
@@ -231,7 +231,7 @@ const playlists = [
     userId: 4,
     name: "Cottage Country",
     imageUrl:
-      "https://i.pinimg.com/564x/34/ed/80/34ed80c6c0f9fb4d9bdf00cae3fc5c52.jpg",
+      "https://www.udiscovermusic.com/wp-content/uploads/2021/06/50s-1000x600-1-1000x600.jpg",
   },
   {
     userId: 4,
@@ -249,7 +249,7 @@ const playlists = [
     userId: 5,
     name: "Classic Canadian Rock",
     imageUrl:
-      "https://mk0droplrg5q83m5xg0r.kinstacdn.com/wp-content/uploads/2020/10/Screenshot-on-2020-10-20-at-15_16_32.png",
+      "https://zinginstruments.com/wp-content/uploads/Life-is-good-message-written-on-a-beach.jpg",
   },
   {
     userId: 5,
@@ -290,7 +290,7 @@ const playlists = [
     userId: 5,
     name: "Cottage Country",
     imageUrl:
-      "https://i.pinimg.com/564x/34/ed/80/34ed80c6c0f9fb4d9bdf00cae3fc5c52.jpg",
+      "https://www.udiscovermusic.com/wp-content/uploads/2021/06/50s-1000x600-1-1000x600.jpg",
   },
   {
     userId: 5,

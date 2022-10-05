@@ -37,6 +37,40 @@ const albums = [
     imageUrl:
       "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
   },
+  {
+    userId: 1,
+    title: "Nevermind",
+    description: "Nirvana",
+    imageUrl:
+      "https://upload.wikimedia.org/wikipedia/en/b/b7/NirvanaNevermindalbumcover.jpg",
+  },
+  {
+    userId: 2,
+    title: "Rumours",
+    description: "Fleetwood Mac",
+    imageUrl: "https://upload.wikimedia.org/wikipedia/en/f/fb/FMacRumours.PNG",
+  },
+  {
+    userId: 3,
+    title: "Purple Rain",
+    description: "Prince and the Revolution",
+    imageUrl:
+      "https://upload.wikimedia.org/wikipedia/en/9/9c/Princepurplerain.jpg",
+  },
+  {
+    userId: 4,
+    title: "Blood on the Tracks",
+    description: "Bob Dylan",
+    imageUrl:
+      "https://upload.wikimedia.org/wikipedia/en/f/fa/Bob_Dylan_-_Blood_on_the_Tracks.jpg",
+  },
+  {
+    userId: 5,
+    title: "The Miseducation of Lauryn Hill",
+    description: "Lauryn Hill",
+    imageUrl:
+      "https://upload.wikimedia.org/wikipedia/en/5/55/LaurynHillTheMiseducationofLaurynHillalbumcover.jpg",
+  },
 ];
 
 module.exports = {

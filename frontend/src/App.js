@@ -45,28 +45,30 @@ function App() {
           <Route exact path="/albums/new">
             <CreateAlbumForm />
           </Route>
-          <Route exact path="/albums/:albumId">
+          {/* <Route exact path="/albums/:albumId">
             <AlbumShow isLoaded={isLoaded} />
-          </Route>
+          </Route> */}
           <Route path="/albums/:albumId/edit">
             <EditAlbumForm />
           </Route>
-          <Route path="/albums/:albumId/songs/new">
+          {/* <Route path="/albums/:albumId/songs/new">
             <CreateSongForm />
-          </Route>
+          </Route> */}
           <Route exact path="/playlists">
             <PlaylistsPage />
           </Route>
           <Route exact path="/playlists/new">
             <CreatePlaylistForm />
           </Route>
-          <Route exact path="/playlists/:playlistId">
+          {/* <Route exact path="/playlists/:playlistId">
             <PlaylistShow />
-          </Route>
-          <Route path="/playlists/:playlistId/edit">
+          </Route> */}
+          <Route exact path="/playlists/:playlistId/edit">
             <EditPlaylistForm />
           </Route>
-          <Route path="/">Page Doesn't Exist</Route>
+          <Route path="/">
+            <Home />
+          </Route>
         </Switch>
       )}
     </>
