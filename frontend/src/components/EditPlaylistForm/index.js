@@ -37,7 +37,7 @@ const EditPlaylistForm = () => {
   return (
     <div id="center-forms">
       <span id="hd-btns">HD</span>
-      <p id="basic-oranges">Basic info</p>
+      <p id="basic-oranges">Edit playlist</p>
       <hr id="discover-hrs22" />
       <hr className="retrysss" />
       <form onSubmit={handleSubmit}>

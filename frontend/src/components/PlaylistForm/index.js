@@ -4,7 +4,7 @@ import { fetchPlaylist } from "../../store/playlists";
 import { useHistory } from "react-router-dom";
 import "./PlaylistForm.css";
 
-const PlaylistForm = ({ playlist }) => {
+const PlaylistForm = ({ playlist, form }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -30,7 +30,7 @@ const PlaylistForm = ({ playlist }) => {
   return (
     <div id="center-form">
       <span id="hd-btn">HD</span>
-      <p id="basic-orange">Basic info</p>
+      <p id="basic-orange">{form}</p>
       <hr id="discover-hrs2" />
       <hr className="retrys" />
       <form onSubmit={handleSubmit}>

@@ -4,7 +4,7 @@ import { fetchAlbum } from "../../store/albums";
 import { useHistory } from "react-router-dom";
 import "./AlbumForm.css";
 
-const AlbumForm = ({ album }) => {
+const AlbumForm = ({ album, form }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -30,7 +30,7 @@ const AlbumForm = ({ album }) => {
   return (
     <div id="center-forms">
       <span id="hd-btns">HD</span>
-      <p id="basic-oranges">Basic info</p>
+      <p id="basic-oranges">{form}</p>
       <hr id="discover-hrs22" />
       <hr className="retrysss" />
       <form onSubmit={handleSubmit}>

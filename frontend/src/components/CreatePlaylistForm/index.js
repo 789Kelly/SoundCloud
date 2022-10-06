@@ -10,7 +10,7 @@ const CreatePlaylistForm = () => {
   };
 
   if (!sessionUser?.id) return <Redirect to="/" />;
-  return <PlaylistForm playlist={playlist} formType="Add Playlist" />;
+  return <PlaylistForm playlist={playlist} form="Add new playlist" />;
 };
 
 export default CreatePlaylistForm;

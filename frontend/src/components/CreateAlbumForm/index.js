@@ -11,7 +11,7 @@ const CreateAlbumForm = () => {
   };
 
   if (!sessionUser?.id) return <Redirect to="/albums" />;
-  return <AlbumForm album={album} formType="Add Album" />;
+  return <AlbumForm album={album} form="Add new album" />;
 };
 
 export default CreateAlbumForm;
