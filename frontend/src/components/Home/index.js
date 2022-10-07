@@ -123,7 +123,25 @@ function Home() {
         <div className="centered-5">
           Save tracks, follow artists and build playlists. All for free.
         </div>
-
+        <div id="footer">
+          <a
+            href="https://github.com/KellyAnneSantos/SoundCloud"
+            target={"_blank"}
+          >
+            <img
+              src="/images/githublogo.png"
+              alt="Link to Github"
+              id="git-hub"
+            />
+          </a>
+          <a
+            href="https://github.com/KellyAnneSantos/SoundCloud"
+            target={"_blank"}
+            id="Kelly-Anne-Santos"
+          >
+            <p>KellyAnneSantos</p>
+          </a>
+        </div>
         {/* <div className="centered-6">
               <NavLink to="/signup">
                 <button className="btn">Create account</button>

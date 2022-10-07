@@ -8,13 +8,14 @@ import Navigation from "./components/Navigation";
 import AlbumsPage from "./components/AlbumsPage";
 import CreateAlbumForm from "./components/CreateAlbumForm";
 import EditAlbumForm from "./components/EditAlbumForm";
-import AlbumShow from "./components/AlbumShow";
+// import AlbumShow from "./components/AlbumShow";
 import PlaylistsPage from "./components/PlaylistsPage";
 import CreatePlaylistForm from "./components/CreatePlaylistForm";
 import EditPlaylistForm from "./components/EditPlaylistForm";
-import PlaylistShow from "./components/PlaylistShow";
-import CreateSongForm from "./components/CreateSongForm";
+// import PlaylistShow from "./components/PlaylistShow";
+// import CreateSongForm from "./components/CreateSongForm";
 import Home from "./components/Home";
+// import Footer from "./components/Footer";
 // import Test from "./components/Test";
 
 function App() {
@@ -71,6 +72,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      {/* <Footer /> */}
     </>
   );
 }

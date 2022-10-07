@@ -45,12 +45,7 @@ function LoginForm() {
     // );
     return dispatch(
       sessionActions.login({ credential: credential2, password: password2 })
-    ).catch(async (res) => {
-      const data = await res.json();
-      if (data && data.errors) setErrors(data.errors);
-      if (!sessionUser?.id)
-        setErrors([...errors, "Invalid username or password"]);
-    });
+    );
   };
 
   return (
@@ -104,7 +99,7 @@ function LoginForm() {
         </div>
         <button
           id="login-btn-demo"
-          disabled={errors.length > 0}
+          // disabled={errors.length > 0}
           onClick={(e) => clickHandler2(e)}
         >
           Continue with demo credentials
