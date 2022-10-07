@@ -19,6 +19,10 @@ This project is a web application inspired by the website SoundCloud. Currently,
 
 ![albumsimage](Albums.png)
 
+## Playlists Screenshot
+
+![playlistsimage](Playlists.png)
+
 ## Setup
 
 ## Future Features
