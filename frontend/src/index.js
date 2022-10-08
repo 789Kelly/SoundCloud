@@ -13,7 +13,7 @@ import { restoreCSRF, csrfFetch } from "./store/csrf";
 // imported Modal Provider
 import configureStore from "./store";
 import * as sessionActions from "./store/session";
-
+import "./fonts/Overpass/Overpass-VariableFont_wght.ttf";
 const store = configureStore();
 
 if (process.env.NODE_ENV !== "production") {
