@@ -8,7 +8,7 @@ import Navigation from "./components/Navigation";
 import AlbumsPage from "./components/AlbumsPage";
 import CreateAlbumForm from "./components/CreateAlbumForm";
 import EditAlbumForm from "./components/EditAlbumForm";
-// import AlbumShow from "./components/AlbumShow";
+import AlbumShow from "./components/AlbumShow";
 import PlaylistsPage from "./components/PlaylistsPage";
 import CreatePlaylistForm from "./components/CreatePlaylistForm";
 import EditPlaylistForm from "./components/EditPlaylistForm";
@@ -46,9 +46,9 @@ function App() {
           <Route exact path="/albums/new">
             <CreateAlbumForm />
           </Route>
-          {/* <Route exact path="/albums/:albumId">
+          <Route exact path="/albums/:albumId">
             <AlbumShow isLoaded={isLoaded} />
-          </Route> */}
+          </Route>
           <Route path="/albums/:albumId/edit">
             <EditAlbumForm />
           </Route>

@@ -4,12 +4,13 @@ import SongItem from "../SongItem";
 import { fetchLoadAlbum } from "../../store/albums";
 import { useEffect } from "react";
 import "./AlbumShow.css";
+import { fetchAlbumSongs, fetchSongs } from "../../store/songs";
 
 const AlbumShow = () => {
   const dispatch = useDispatch();
 
   const { albumId } = useParams();
-  const songs = useSelector((state) => state.albums.Songs);
+  const songs = Object.values(useSelector((state) => state.songs));
   const album = useSelector((state) => state.albums[albumId]);
   const user = useSelector((state) => state.session.user);
   // let songLinks;
@@ -55,6 +56,7 @@ const AlbumShow = () => {
 
   useEffect(() => {
     dispatch(fetchLoadAlbum(albumId));
+    dispatch(fetchAlbumSongs(albumId));
   }, []);
 
   return (

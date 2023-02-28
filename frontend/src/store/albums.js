@@ -58,9 +58,13 @@ export const fetchAlbums = () => async (dispatch) => {
 
 export const fetchLoadAlbum = (id) => async (dispatch) => {
   const res = await csrfFetch(`/api/albums/${id}`);
-  const album = await res.json();
 
-  dispatch(loadAlbum(album.Songs));
+  if (res.ok) {
+    const album = await res.json();
+    dispatch(loadAlbum(album));
+    return album;
+  }
+  return res;
 };
 
 export const fetchAlbum = (album) => async (dispatch) => {
@@ -143,7 +147,7 @@ const albumReducer = (state = {}, action) => {
       return newState;
     case LOAD_ALBUM:
       newState = { ...state };
-      newState.Songs = action.payload;
+      newState[action.payload.id] = action.payload;
       return newState;
     default:
       return state;
@@ -151,14 +155,3 @@ const albumReducer = (state = {}, action) => {
 };
 
 export default albumReducer;
-
-//error handling
-//default user
-//image URL's
-//get rid of bullet on navigation
-//reseed database
-//do home page and miscellaneous route "Page Doesn't Exist"
-//albums/hello giving an error instead of redirecting
-//you can see other routes' data flash on load
-//comment in required fields
-//want user to be able to login after form has errors without refreshing

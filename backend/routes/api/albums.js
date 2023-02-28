@@ -23,6 +23,31 @@ const validateAlbum = [
   handleValidationErrors,
 ];
 
+router.get("/:albumId/songs", async (req, res) => {
+  let { albumId } = req.params;
+  albumId = parseInt(albumId);
+
+  const album = await Album.findByPk(albumId);
+
+  if (!album) {
+    res.status(404);
+    return res.json({
+      message: "Album couldn't be found",
+      statusCode: 404,
+    });
+  }
+
+  const Songs = await Song.findAll({
+    where: {
+      albumId,
+    },
+  });
+
+  return res.json({
+    Songs,
+  });
+});
+
 router.post("/:albumId/songs", requireAuth, validateSong, async (req, res) => {
   const { user } = req;
   let { albumId } = req.params;
