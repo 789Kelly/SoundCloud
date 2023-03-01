@@ -61,28 +61,40 @@ const AlbumShow = () => {
 
   return (
     <>
-      <div id="gradient-box">
-        <div>
+      <div id="gradient-boxs">
+        <div id="left-playlist">
           <div>
             <p id="album-titre">{album.title}</p>
-            <p id="album-description"> {album.description} </p>
+            <p id="album-descriptions"> {album.description} </p>
           </div>
-          <span id="circle">TRACKS</span>
+          <span id="circles">TRACKS</span>
         </div>
-        <img src={album?.previewImage} alt="Album Preview" id="album-img" />
+        <img src={album?.previewImage} alt="Album Preview" id="album-imgs" />
       </div>
-      {user?.id && (
-        <NavLink to={`/albums/${albumId}/songs/new`}>
-          <button>Add Song</button>
-        </NavLink>
-      )}
-      <ol>
-        {songs?.map((song) => (
-          <li>
-            <SongItem key={song?.id} song={song} />
-          </li>
-        ))}
-      </ol>
+      <div id="for-screens">
+        {/* {user?.id && (
+          <NavLink to={`/albums/${albumId}/songs/new`}>
+            <button className="btn-3s">Add Song</button>
+          </NavLink>
+        )} */}
+        <hr id="discover-hrs" />
+        <ul className="remove-indent">
+          {songs?.map((song) => (
+            <li>
+              <SongItem key={song?.id} song={song} />
+              <hr id="discover-hrss" />
+            </li>
+          ))}
+        </ul>
+      </div>
+      <iframe
+        width="100%"
+        height="166"
+        scrolling="no"
+        frameborder="no"
+        allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293&amp;{ ADD YOUR PARAMETERS HERE }"
+      ></iframe>
     </>
   );
 };
