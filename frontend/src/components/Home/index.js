@@ -125,7 +125,7 @@ function Home() {
         </div>
         <div id="footer">
           <a
-            href="https://github.com/KellyAnneSantos/SoundCloud"
+            href="https://github.com/KellyAnneSantos/LoudCloud"
             target={"_blank"}
           >
             <img
@@ -135,7 +135,7 @@ function Home() {
             />
           </a>
           <a
-            href="https://github.com/KellyAnneSantos/SoundCloud"
+            href="https://github.com/KellyAnneSantos/LoudCloud"
             target={"_blank"}
             id="Kelly-Anne-Santos"
           >
