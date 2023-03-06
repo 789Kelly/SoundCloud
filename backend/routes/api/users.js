@@ -125,6 +125,24 @@ router.get("/api/users/current/playlists", requireAuth, async (req, res) => {
       "updatedAt",
       ["imageUrl", "previewImage"],
     ],
+    include: [
+      {
+        model: Song,
+        as: "Songs",
+        attributes: [
+          "id",
+          "userId",
+          "albumId",
+          "title",
+          "description",
+          "url",
+          "createdAt",
+          "updatedAt",
+          ["imageUrl", "previewImage"],
+        ],
+        through: { attributes: [] },
+      },
+    ],
   });
 
   return res.json({

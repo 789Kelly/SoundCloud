@@ -36,7 +36,6 @@ const AlbumItem = ({ album }) => {
         <img
           src={album?.previewImage}
           alt="Album Preview"
-          // style={{ width: "100%" }}
           className="nav-link"
         />
       </NavLink>

@@ -13,6 +13,7 @@ const validateSong = [
     .exists({ checkFalsy: true })
     .withMessage("Song title is required"),
   check("url").exists({ checkFalsy: true }).withMessage("Audio is required"),
+  check("url").contains(".mp3").withMessage("URL must end in .mp3"),
   handleValidationErrors,
 ];
 

@@ -68,6 +68,7 @@
   overflow: hidden;
   /* margin-left: 265px; */
   margin-top: 20px;
+  margin-bottom: 10px;
   background-color: white;
   color: darkslategray;
   border-radius: 3px;
@@ -101,4 +102,56 @@
 .remove-indent {
   padding-left: 0;
   list-style: none;
+}
+
+#playlist-banner {
+  width: 100%;
+  position: relative;
+}
+
+#playlist-user-img {
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 22%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+}
+
+#my-playlists {
+  background-color: black;
+  color: white;
+  font-size: 24px;
+  position: absolute;
+  top: 1%;
+  left: 30%;
+  padding: 5px;
+}
+
+#playlist-user {
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  padding: 5px;
+}
+
+.add-playlist-btn {
+  text-align: center;
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid lightgrey;
+  cursor: pointer;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  margin-left: 1082px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  background-color: white;
+  color: darkslategray;
+  border-radius: 3px;
+  /* margin-left: 0; */
 }
