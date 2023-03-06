@@ -111,8 +111,8 @@
 
 #playlist-user-img {
   position: absolute;
-  border-radius: 50%;
-  top: 50%;
+  border-radius: 55%;
+  top: 52%;
   left: 22%;
   transform: translate(-50%, -50%);
   width: 200px;
