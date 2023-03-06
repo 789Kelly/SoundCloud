@@ -9,8 +9,7 @@ const songs = [
     title: "What's Going On",
     description: "Marvin Gaye",
     url: "https://res.cloudinary.com/diyjzl1ol/video/upload/v1677984375/What%27s%20Going%20On/01_-_What_s_Going_On_njorjt.mp3",
-    imageUrl:
-      "https://upload.wikimedia.org/wikipedia/en/8/84/MarvinGayeWhat%27sGoingOnalbumcover.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/719kIe1npJL._SL1200_.jpg",
   },
   {
     userId: 1,
@@ -18,8 +17,7 @@ const songs = [
     title: "What's Happening Brother",
     description: "Marvin Gaye",
     url: "https://res.cloudinary.com/diyjzl1ol/video/upload/v1677984375/What%27s%20Going%20On/02_-_What_s_Happening_Brother_hiy0dn.mp3",
-    imageUrl:
-      "https://images.genius.com/e42ac520b8841c13fb0a46a7b66c6219.1000x1000x1.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/719kIe1npJL._SL1200_.jpg",
   },
   {
     userId: 1,
@@ -27,8 +25,7 @@ const songs = [
     title: "Flyin' High",
     description: "Marvin Gaye",
     url: "https://res.cloudinary.com/diyjzl1ol/video/upload/v1677984375/What%27s%20Going%20On/03_-_Flyin_High_In_The_Friendly_Sky_dxzjfl.mp3",
-    imageUrl:
-      "https://images.genius.com/e42ac520b8841c13fb0a46a7b66c6219.1000x1000x1.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/719kIe1npJL._SL1200_.jpg",
   },
   {
     userId: 1,
@@ -63,8 +60,7 @@ const songs = [
     title: "Right On",
     description: "Marvin Gaye",
     url: "https://res.cloudinary.com/diyjzl1ol/video/upload/v1677984377/What%27s%20Going%20On/07_-_Right_On_bqflwp.mp3",
-    imageUrl:
-      "https://images.genius.com/e42ac520b8841c13fb0a46a7b66c6219.1000x1000x1.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/719kIe1npJL._SL1200_.jpg",
   },
   {
     userId: 1,
@@ -72,8 +68,7 @@ const songs = [
     title: "Wholy Holy",
     description: "Marvin Gaye",
     url: "https://res.cloudinary.com/diyjzl1ol/video/upload/v1677984376/What%27s%20Going%20On/08_-_Wholy_Holy_vtputj.mp3",
-    imageUrl:
-      "https://images.genius.com/e42ac520b8841c13fb0a46a7b66c6219.1000x1000x1.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/719kIe1npJL._SL1200_.jpg",
   },
   {
     userId: 1,

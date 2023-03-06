@@ -13,7 +13,7 @@ module.exports = {
           username: "Demo-lition",
           password: bcrypt.hashSync("password"),
           previewImage:
-            "https://www.gold.ac.uk/media/images-by-section/departments/theatre-and-performance/staff/Simonetta-small.jpg",
+            "https://i1.sndcdn.com/avatars-000619340277-fkzeve-t500x500.jpg",
         },
         {
           firstName: "Lyubochka",
@@ -22,7 +22,7 @@ module.exports = {
           username: "FakeUser1",
           password: bcrypt.hashSync("password2"),
           previewImage:
-            "https://i.pinimg.com/474x/5f/1c/a1/5f1ca1ba2285859b6f31ce63e4025d5d--taissa-farmiga-star-wars-film.jpg",
+            "https://i1.sndcdn.com/avatars-SHeb8xVM39UBG156-ICmzSQ-t500x500.jpg",
         },
         {
           firstName: "Cedomir",
