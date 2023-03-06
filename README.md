@@ -43,7 +43,7 @@ JWT_EXPIRES_IN=604800
 
 ## Future Features
 
-- [ ] Song CRUD operations
+- [x] Song CRUD operations
 - [ ] Comment CRUD operations
 - [ ] Search bar
-- [ ] Audio
+- [x] Audio
