@@ -29,10 +29,7 @@ function SongItem({ song }) {
         <button className="btn-3ss">Delete</button>
       </div> */}
       <div>
-        <ReactHowler
-          playing={playing}
-          src="https://res.cloudinary.com/diyjzl1ol/video/upload/v1677969351/01_-_What_s_Going_On_pnssve.mp3"
-        />
+        <ReactHowler playing={playing} src={song.url} />
         <button onClick={play}>></button>
         <button onClick={pause}>||</button>
       </div>
