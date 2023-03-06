@@ -1,59 +1,56 @@
-import { useParams } from "react-router-dom";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { uploadSong } from "../../store/albums";
-import { useHistory, Redirect } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { fetchAddSong } from "../../store/songs";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect, useHistory, useParams } from "react-router-dom";
+import { fetchEditSong } from "../../store/songs";
 
-const CreateSongForm = () => {
-  const { albumId } = useParams();
-  let album = useSelector((state) => state.albums[albumId]);
+const EditSongForm = () => {
+  const { songId } = useParams();
+  let song = useSelector((state) => state.songs[songId]);
   const user = useSelector((state) => state.session.user);
 
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [url, setUrl] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [title, setTitle] = useState(song?.title);
+  const [description, setDescription] = useState(song.description);
+  const [url, setUrl] = useState(song.url);
+  const [imageUrl, setImageUrl] = useState(song.imageUrl);
   const [errors, setErrors] = useState([]);
 
   if (!user?.id) return <Redirect to="/albums" />;
-  if (album?.userId !== user?.id) return <Redirect to="/albums" />;
+  if (song?.userId !== user?.id) return <Redirect to="/albums" />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let song = { title, description, url, imageUrl };
+    song = { ...song, title, description, url, imageUrl };
     setErrors([]);
 
-    const response = await dispatch(fetchAddSong(song, albumId)).catch(
+    const response = await dispatch(fetchEditSong(song, song.id)).catch(
       async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       }
     );
 
-    if (response) history.push(`/albums/${albumId}`);
+    if (response) history.push("/albums");
   };
 
   return (
-    <div id="center-form">
-      <span id="hd-btn">HD</span>
-      <p id="basic-orange">Add new song</p>
-      <hr id="discover-hrs2" />
-      <hr className="retrys" />
+    <div id="center-forms">
+      <span id="hd-btns">HD</span>
+      <p id="basic-oranges">Edit song</p>
+      <hr id="discover-hrs22" />
+      <hr className="retrysss" />
       <form onSubmit={handleSubmit}>
-        <div id="create-play-flex">
-          <div id="back-gradient"></div>
+        <div id="create-play-flexs">
+          <div id="back-gradients"></div>
           <div>
-            <p className="playlist-text">Name</p>
+            <p className="playlist-textss">Name</p>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="emails"
+              className="emailss"
             />
             <p className="playlist-textss">Artist</p>
             <input
@@ -76,23 +73,23 @@ const CreateSongForm = () => {
               onChange={(e) => setImageUrl(e.target.value)}
               className="emailss"
             />
-            <ul className="create-play-errors">
+            <ul className="create-play-errorss">
               {errors.map((error, idx) => (
                 <li key={idx}>{error}</li>
               ))}
             </ul>
           </div>
         </div>
-        <hr className="retry" />
-        <div id="bottom-playlist">
-          <p id="asterisk-means">Required fields</p>
-          <button type="submit" id="play-form-btn">
+        <hr className="retryss" />
+        <div id="bottom-playlists">
+          <p id="asterisk-meanss">Required fields</p>
+          <button type="submit" id="play-form-btns">
             Save changes
           </button>
         </div>
-        <hr className="retry" />
+        <hr className="retryss" />
       </form>
-      <p id="important-p">
+      <p id="important-ps">
         <b>Important:</b> By sharing, you confirm that your playlist complies
         with our Terms of use and doesn't infringe anyone else's rights. If in
         doubt, refer to the Copyright information pages and FAQs before
@@ -102,4 +99,4 @@ const CreateSongForm = () => {
   );
 };
 
-export default CreateSongForm;
+export default EditSongForm;

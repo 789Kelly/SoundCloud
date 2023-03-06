@@ -72,20 +72,22 @@ const AlbumShow = () => {
         <img src={album?.previewImage} alt="Album Preview" id="album-imgs" />
       </div>
       <div id="for-screens">
-        {/* {user?.id && (
-          <NavLink to={`/albums/${albumId}/songs/new`}>
-            <button className="btn-3s">Add Song</button>
-          </NavLink>
-        )} */}
-        <hr id="discover-hrs" />
-        <ul className="remove-indent">
-          {songs?.map((song) => (
-            <li>
-              <SongItem key={song?.id} song={song} />
+        {album?.userId === user?.id && (
+          <>
+            <NavLink to={`/albums/${albumId}/songs/new`}>
+              <button className="btn-3s">Add Song</button>
+            </NavLink>
+            <hr id="discover-hrs" />
+          </>
+        )}
+        <ol className="remove-indent">
+          {songs?.map((song, index) => (
+            <li className="song-row">
+              <SongItem key={song?.id} song={song} index={index} />
               <hr id="discover-hrss" />
             </li>
           ))}
-        </ul>
+        </ol>
       </div>
       {/* <iframe
         width="100%"

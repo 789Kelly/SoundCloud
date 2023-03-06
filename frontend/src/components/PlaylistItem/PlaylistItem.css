@@ -1,6 +1,7 @@
 #playlist-card {
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 
 /* ol {
@@ -39,6 +40,7 @@ ol > li {
   margin: 0 0 0 20px;
   text-decoration: none;
   color: rgba(128, 128, 128, 0.556);
+  cursor: pointer;
 }
 
 .btn-3ss {
@@ -63,8 +65,14 @@ ol > li {
   display: flex;
   flex-direction: row;
   align-items: center;
+  text-decoration: none;
 }
 
 #right-align-play {
   text-align: right;
+}
+
+#play-name:hover {
+  color: rgb(255, 94, 0);
+  cursor: pointer;
 }

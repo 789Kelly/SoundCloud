@@ -17,7 +17,6 @@ const EditAlbumForm = () => {
   const [description, setDescription] = useState(album?.description);
   const [previewImage, setPreviewImage] = useState(album?.previewImage);
   const [errors, setErrors] = useState([]);
-  //dispatch in a useeffect if album is empty
 
   if (!user?.id) return <Redirect to="/albums" />;
   if (album?.userId !== user?.id) return <Redirect to="/albums" />;
@@ -54,7 +53,7 @@ const EditAlbumForm = () => {
               onChange={(e) => setTitle(e.target.value)}
               className="emailss"
             />
-            <p className="playlist-textss">Description</p>
+            <p className="playlist-textss">Artist</p>
             <input
               className="emailss"
               type="text"

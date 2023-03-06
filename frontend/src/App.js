@@ -13,10 +13,12 @@ import PlaylistsPage from "./components/PlaylistsPage";
 import CreatePlaylistForm from "./components/CreatePlaylistForm";
 import EditPlaylistForm from "./components/EditPlaylistForm";
 // import PlaylistShow from "./components/PlaylistShow";
-// import CreateSongForm from "./components/CreateSongForm";
+import CreateSongForm from "./components/CreateSongForm";
 import Home from "./components/Home";
 // import Footer from "./components/Footer";
 // import Test from "./components/Test";
+import SongShow from "./components/SongShow";
+import EditSongForm from "./components/EditSongForm"
 
 function App() {
   const dispatch = useDispatch();
@@ -52,9 +54,15 @@ function App() {
           <Route path="/albums/:albumId/edit">
             <EditAlbumForm />
           </Route>
-          {/* <Route path="/albums/:albumId/songs/new">
+          <Route path="/albums/:albumId/songs/new">
             <CreateSongForm />
-          </Route> */}
+          </Route>
+          <Route exact path="/songs/:songId">
+            <SongShow />
+          </Route>
+          <Route path="/songs/:songId/edit">
+            <EditSongForm />
+          </Route>
           <Route exact path="/playlists">
             <PlaylistsPage />
           </Route>

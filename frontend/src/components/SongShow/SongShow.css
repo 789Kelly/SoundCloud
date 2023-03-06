@@ -1,0 +1,15 @@
+#soundwave {
+  width: 520px;
+}
+
+#song-top-flex {
+  display: flex;
+  flex-direction: row;
+}
+
+#play-btn {
+  padding-top: 15px;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
