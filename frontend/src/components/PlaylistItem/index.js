@@ -1,9 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDeletePlaylist } from "../../store/playlists";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./PlaylistItem.css";
-import SongItem from "../SongItem";
-import PlaylistSongItem from "../PlaylistSongItem";
 
 const PlaylistItem = ({ playlist }) => {
   const dispatch = useDispatch();
@@ -20,23 +18,28 @@ const PlaylistItem = ({ playlist }) => {
     <div className="playlist-container">
       <div className="playlist-right-flex">
         <div>
-          {/* <NavLink to={`/playlists/${playlist.id}`}> */}
-          <img
-            src={playlist.previewImage}
-            alt="Playlist Preview"
-            className="playlist-img"
-          />
-          {/* </NavLink> */}
+          <NavLink to={`/playlists/${playlist.id}`}>
+            <img
+              src={playlist.previewImage}
+              alt="Playlist Preview"
+              className="playlist-img"
+            />
+          </NavLink>
         </div>
         <div>
-          {/* <NavLink to={`/playlists/${playlist.id}`} id="play-name"> */}
-          <p className="playlist-name">{playlist.name}</p>
-          {/* </NavLink> */}
-          <img
-            src="/images/soundwave.png"
-            alt="soundwave"
-            className="playlist-soundwave"
-          />
+          <NavLink
+            to={`/playlists/${playlist.id}`}
+            style={{ textDecoration: "none" }}
+          >
+            <p className="playlist-name">{playlist.name}</p>
+          </NavLink>
+          <NavLink to={`/playlists/${playlist.id}`}>
+            <img
+              src="/images/soundwave.png"
+              alt="soundwave"
+              className="playlist-soundwave"
+            />
+          </NavLink>
           {/* <hr id="discover-hrss" />
         {playlist?.Songs?.map((song, index) => (
           <li key={song.id}>
