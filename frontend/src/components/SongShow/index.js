@@ -53,8 +53,8 @@ const SongShow = () => {
             </div>
             <img src={song?.previewImage} alt="Album Preview" id="album-imgs" />
           </div>
-          <img src={user?.previewImage} alt="Album Preview" />
-          <input />
+          {/* <img src={user?.previewImage} alt="Album Preview" />
+          <input /> */}
         </>
       )}
     </>
