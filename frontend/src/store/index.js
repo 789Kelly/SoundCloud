@@ -4,12 +4,14 @@ import sessionReducer from "./session";
 import albumReducer from "./albums";
 import playlistReducer from "./playlists";
 import songReducer from "./songs";
+import commentReducer from "./comments";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   albums: albumReducer,
   playlists: playlistReducer,
   songs: songReducer,
+  comments: commentReducer,
 });
 
 let enhancer;

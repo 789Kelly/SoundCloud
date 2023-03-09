@@ -13,3 +13,53 @@
   height: 100px;
   cursor: pointer;
 }
+
+#artist-img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  object-position: left top;
+}
+
+#user-img {
+  margin-top: 20px;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  object-position: left top;
+  margin-bottom: 20px;
+}
+
+.user-comment-img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+#comment-input {
+  margin-top: 20px;
+  border: 5px solid #f2f2f2;
+  width: 765px;
+  height: 28px;
+  margin-bottom: 20px;
+}
+
+#input-container {
+  display: flex;
+  align-items: center;
+}
+
+#song-comment-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.comment-top {
+  display: flex;
+  align-items: center;
+}
+
+#comment-count {
+  color: rgba(128, 128, 128, 0.556);
+}

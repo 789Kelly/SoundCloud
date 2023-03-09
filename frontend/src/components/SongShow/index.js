@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { fetchSong } from "../../store/songs";
 import "./SongShow.css";
 import ReactHowler from "react-howler";
+import { fetchAddComment, fetchComments } from "../../store/comments";
 
 const SongShow = () => {
   const dispatch = useDispatch();
@@ -15,14 +16,35 @@ const SongShow = () => {
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [playing, setPlaying] = useState(false);
+  const [body, setBody] = useState("");
+  const [errors, setErrors] = useState([]);
 
   const play = () => {
     setPlaying(!playing);
   };
 
   const song = useSelector((state) => state?.songs[songId]);
+  const comments = Object.values(
+    useSelector((state) => state.comments)
+  ).reverse();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    let comment = { body };
+    setErrors([]);
+
+    const response = await dispatch(fetchAddComment(comment, songId)).catch(
+      async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      }
+    );
+    setBody("");
+  };
 
   useEffect(() => {
+    dispatch(fetchComments(songId));
     dispatch(fetchSong(songId)).then(() => setIsLoaded(true));
   }, []);
 
@@ -53,8 +75,49 @@ const SongShow = () => {
             </div>
             <img src={song?.previewImage} alt="Album Preview" id="album-imgs" />
           </div>
-          {/* <img src={user?.previewImage} alt="Album Preview" />
-          <input /> */}
+          <div id="for-screens">
+            <div id="input-container">
+              <img src={user?.previewImage} alt="User" id="user-img" />
+              <form onSubmit={handleSubmit}>
+                <input
+                  id="comment-input"
+                  // type="text"
+                  value={body}
+                  onChange={(e) => setBody(e.target.value)}
+                  required
+                />
+                <button type="submit" style={{ display: "none" }}></button>
+              </form>
+            </div>
+            <hr id="discover-hrs" />
+            <div id="song-comment-container">
+              <div>
+                <img
+                  src={song?.Artist?.previewImage}
+                  alt="Artist"
+                  id="artist-img"
+                />
+                <p>{song?.Artist?.username}</p>
+              </div>
+              <div>
+                <p id="comment-count">{comments?.length} comment(s)</p>
+                <hr id="discover-hrs" />
+                {comments?.map((comment) => (
+                  <>
+                    <div className="comment-top">
+                      <img
+                        src={comment?.User?.previewImage}
+                        alt="Artist"
+                        className="user-comment-img"
+                      />
+                      <span>{comment?.User?.username}</span>
+                    </div>
+                    <p>{comment?.body}</p>
+                  </>
+                ))}
+              </div>
+            </div>
+          </div>
         </>
       )}
     </>
